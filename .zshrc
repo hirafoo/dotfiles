@@ -87,12 +87,12 @@ alias up='svn up'
 
 # vi open perl file
 vip () {
-    vi `perldoc -l $1 | perl -pe 's/pod$/pm/'`
+    vi `perldoc -ml $1 | perl -pe 's/pod$/pm/'`
 }
 
 # cd module dist
 cdp () {
-    cd `perldoc -l $1 | perl -pe 's/[^\/]+\.\w+$//'`
+    cd `perldoc -ml $1 | perl -pe 's/[^\/]+\.\w+$//'`
 }
 
 # status bar
