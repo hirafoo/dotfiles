@@ -5,7 +5,7 @@ use warnings;
 use base qw/Class::Accessor::Fast/;
 use Data::Dumper;
 __PACKAGE__->mk_accessors(qw/name/);
-sub p { print Dumper shift }
+sub p { warn Dumper shift }
 
 sub new {
     my $class = shift;
@@ -19,4 +19,4 @@ use warnings;
 
 use Data::Dumper;
 
-sub p ($) { print Dumper shift }
+sub p ($) { warn Dumper shift }
