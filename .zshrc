@@ -62,10 +62,10 @@ alias le=less
 alias ll='ls -l'
 alias m=more
 alias man='LANG=ja_JP.UTF-8 man'
+alias rb=ruby
 alias sc=screen
 alias w3m='w3m -no-mouse'
 alias vi=vim
-alias ..='cd ..'
 alias -g G='| grep'
 alias -g L='| less'
 alias -g V='| grep -v'
@@ -92,7 +92,7 @@ vip () {
 
 # cd module dist
 cdp () {
-    cd `perldoc -ml $1 | perl -pe 's/[^\/]+\.\w+$//'`
+    cd `perldoc -ml $1 | perl -pe 's!\.\w+$!/!'`
 }
 
 # status bar

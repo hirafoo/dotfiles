@@ -14,6 +14,7 @@ vbell off
 bind l windowlist
 
 # emacs like split 
+#bind -c REGION 3 split -v
 bind -c REGION 2 split
 bind -c REGION 1 only
 bind -c REGION 0 remove

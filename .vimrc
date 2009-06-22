@@ -55,6 +55,7 @@ augroup filetypedetect
 au! BufRead,BufNewFile *.tt     setfiletype html
 au! BufRead,BufNewFile *.erb    setfiletype ruby
 au! BufRead,BufNewFile *.t      setfiletype perl
+au! BufRead,BufNewFile *.cgi    setfiletype perl
 augroup END
 
 "☆とか※とかの対応
@@ -144,5 +145,5 @@ filetype plugin on
 "endif
 "" 改行コードの自動認識
 "set fileformats=unix,dos,mac
-
-
+"
+"
