@@ -29,7 +29,7 @@ unsetopt promptcr # 改行の無い出力を表示する
 function history-all { history -E 1 } # 全履歴の一覧を出力する
 
 # cd をしたときにlsを実行する
-function chpwd() { clear;echo \[`pwd`\];ls -l }
+function chpwd() { clear;echo \[`pwd`\];ls -l --color=tty}
 
 zstyle ':completion:*:default' menu select=1 # 補完候補のカーソル選択を有効に
 
@@ -60,6 +60,7 @@ alias l=clear
 alias la='ls -a'
 alias le=less
 alias ll='ls -l'
+alias ls='ls --color=tty'
 alias m=more
 alias man='LANG=ja_JP.UTF-8 man'
 alias rb=ruby
@@ -110,4 +111,3 @@ export PERL_AUTOINSTALL="--defaultdeps"
 export DBIC_NO_WARN_BAD_PERL=1
 
 alias pv='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "$module ", ${"$module\::VERSION"} }'"'"
-# test comment
