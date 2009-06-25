@@ -110,3 +110,4 @@ export PERL_AUTOINSTALL="--defaultdeps"
 export DBIC_NO_WARN_BAD_PERL=1
 
 alias pv='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "$module ", ${"$module\::VERSION"} }'"'"
+# test comment
