@@ -105,7 +105,7 @@ preexec () {
 }
 
 # add PATH
-PATH=$PATH:/sbin:/usr/sbin:~/bin
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/bin:~/bin
 
 export PERL_AUTOINSTALL="--defaultdeps"
 export DBIC_NO_WARN_BAD_PERL=1
