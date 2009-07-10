@@ -1,0 +1,4 @@
+no strict;
+use warnings;
+use Data::Dumper;
+sub p {print Dumper shift}

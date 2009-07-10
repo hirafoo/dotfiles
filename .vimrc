@@ -8,13 +8,14 @@ noremap <C-k> :bnext!<CR>
 
 :map <silent> <C-o> :call BufferList()<CR>
 
-
 " :qq で :q! と打った事にする
 :cmap qq q!
 "テンプレート読み込み
 autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
 autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
+
+autocmd InsertLeave *  silent! wall
 
 " C-cをESCに
 "↓は駄目
