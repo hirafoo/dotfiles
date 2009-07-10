@@ -93,7 +93,7 @@ vip () {
 
 # cd module dist
 cdp () {
-    cd `perldoc -ml $1 | perl -pe 's!\.\w+$!/!'`
+    cd `perldoc -ml $1 | perl -pe 's/[^\/]+\.\w+$//'`
 }
 
 # status bar
