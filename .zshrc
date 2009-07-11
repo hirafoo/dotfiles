@@ -95,6 +95,9 @@ vip () {
 cdp () {
     cd `perldoc -ml $1 | perl -pe 's/[^\/]+\.\w+$//'`
 }
+cdpp () {
+    cd `perldoc -ml $1 | perl -pe 's/\.pm$//'`
+}
 
 # status bar
 preexec () {
