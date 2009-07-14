@@ -26,17 +26,13 @@ setopt magic_equal_subst    # --prefix=/usr などの = 以降でも補完でき
 
 unsetopt promptcr # 改行の無い出力を表示する
 
-function history-all { history -E 1 } # 全履歴の一覧を出力する
-
-# cd をしたときにlsを実行する
-function chpwd() { clear;echo \[`pwd`\];ls -l --color=tty}
-
 zstyle ':completion:*:default' menu select=1 # 補完候補のカーソル選択を有効に
 
 #export LANG=ja_JP.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
 #export PAGER='less -N'
+#export LESS="-R"
 
 bindkey -e
 bindkey '^R' history-incremental-search-backward
@@ -48,14 +44,11 @@ PROMPT="[%B%~${default}%b] %E
 %b%# "
 RPROMPT='[%n@%m]'
 
-
-### history setting
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
 ### my aliases
-alias fin='find . -name'
 alias l=clear
 alias la='ls -a'
 alias le=less
@@ -73,31 +66,24 @@ alias -g V='| grep -v'
 alias -g W='| wc'
 alias -g X='| xargs grep'
 
-## svn
 alias si='svn ci'
-alias sl='svn diff | less'
+alias sl='svn diff | cdiff'
 alias so='svn co'
 alias st='svn st'
 alias up='svn up'
-
 
 ## screen auto run
 #if [ $SHLVL = 1 ];then
 #      screen -R
 #fi
 
-# vi open perl file
-vip () {
-    vi `perldoc -ml $1 | perl -pe 's/pod$/pm/'`
-}
+vip () { vi `perldoc -ml $1 | perl -pe 's/pod$/pm/'` }
+cdp () { cd `perldoc -ml $1 | perl -pe 's/[^\/]+\.\w+$//'` }
+cdpp () { cd `perldoc -ml $1 | perl -pe 's/\.pm$//'` }
+fin () { find . -name $1 V svn }
+history-all () { history -E 1 }
+chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
 
-# cd module dist
-cdp () {
-    cd `perldoc -ml $1 | perl -pe 's/[^\/]+\.\w+$//'`
-}
-cdpp () {
-    cd `perldoc -ml $1 | perl -pe 's/\.pm$//'`
-}
 
 # status bar
 preexec () {
@@ -107,7 +93,6 @@ preexec () {
     fi
 }
 
-# add PATH
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/bin:~/bin
 
 export PERL_AUTOINSTALL="--defaultdeps"
