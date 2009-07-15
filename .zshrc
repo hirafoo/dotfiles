@@ -53,6 +53,7 @@ alias l=clear
 alias la='ls -a'
 alias le=less
 alias ll='ls -l'
+alias lla='ls -la'
 alias ls='ls --color=tty'
 alias m=more
 alias man='LANG=ja_JP.UTF-8 man'
@@ -67,7 +68,7 @@ alias -g W='| wc'
 alias -g X='| xargs grep'
 
 alias si='svn ci'
-alias sl='svn diff | cdiff'
+alias sl='svn diff'
 alias so='svn co'
 alias st='svn st'
 alias up='svn up'
