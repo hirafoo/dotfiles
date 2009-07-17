@@ -32,7 +32,7 @@ zstyle ':completion:*:default' menu select=1 # 補完候補のカーソル選択
 export LANG=en_US.UTF-8
 export EDITOR=vim
 #export PAGER='less -N'
-#export LESS="-R"
+export LESS="-R"
 
 bindkey -e
 bindkey '^R' history-incremental-search-backward
@@ -68,7 +68,7 @@ alias -g W='| wc'
 alias -g X='| xargs grep'
 
 alias si='svn ci'
-alias sl='svn diff'
+alias sl='svn diff | colordiff | less'
 alias so='svn co'
 alias st='svn st'
 alias up='svn up'

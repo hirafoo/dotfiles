@@ -54,6 +54,7 @@ let loaded_matchparen = 1
 " 特定の拡張子を任意のファイルタイプに関連付ける
 augroup filetypedetect
 au! BufRead,BufNewFile *.tt     setfiletype html
+au! BufRead,BufNewFile *.xhtml  setfiletype html
 au! BufRead,BufNewFile *.erb    setfiletype ruby
 au! BufRead,BufNewFile *.t      setfiletype perl
 au! BufRead,BufNewFile *.cgi    setfiletype perl
