@@ -65,6 +65,7 @@ set ambiwidth=double
 
 "set number
 set tabstop=4
+set tenc=utf8
 set shiftwidth=4
 set expandtab
 set showmode
