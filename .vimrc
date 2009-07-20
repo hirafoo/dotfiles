@@ -95,6 +95,12 @@ filetype on
 filetype indent on
 filetype plugin on
 
+command! -bang -nargs=? Utf
+            \ edit<bang> ++enc=utf-8 <args>
+command! -bang -nargs=? Sjis
+            \ edit<bang> ++enc=sjis <args>
+command! -bang -nargs=? Euc
+            \ edit<bang> ++enc=euc-jp <args>
 
 "" 文字コードの自動認識
 "if &encoding !=# 'utf-8'

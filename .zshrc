@@ -85,7 +85,6 @@ fin () { find . -name $1 V svn }
 history-all () { history -E 1 }
 chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
 
-
 # status bar
 preexec () {
     if [ $TERM = "screen" ]; then
