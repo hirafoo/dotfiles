@@ -1,68 +1,5 @@
-" for buftabs.vim
-"バッファタブにパスを省略してファイル名のみ表示する(buftabs.vim)
-let g:buftabs_only_basename=1
-"バッファタブをステータスライン内に表示する
-let g:buftabs_in_statusline=1
-noremap <C-j> :bprev!<CR>
-noremap <C-k> :bnext!<CR>
-
-:map <silent> <C-o> :call BufferList()<CR>
-
-" :qq で :q! と打った事にする
-:cmap qq q!
-"テンプレート読み込み
-autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
-autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
-autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
-
-autocmd InsertLeave *  silent! wall
-
-" C-cをESCに
-"↓は駄目
-map <C-C> <Esc>
-
-" インサートモードで移動
-noremap! <C-h> <Left>
-noremap! <C-l> <Right>
-noremap! <C-k> <Up>
-noremap! <C-j> <Down>
-noremap! <C-a> <Home>
-noremap! <C-e> <End>
-inoremap <silent> <expr> <C-e>  (pumvisible() ? "\<C-e>" : "\<End>")
-noremap! <C-d> <Del>
-
-" htmlモードとかで閉じタグをc--で自動挿入
-:let g:closetag_html_style=1
-au Filetype html,xml,xsl,ant source ~/.vim/plugin/closetag.vim
-
-
-""" 括弧を打ったら自動で閉じる
-""inoremap { {}<LEFT>
-""inoremap [ []<LEFT>
-""inoremap ( ()<LEFT>
-""inoremap " ""<LEFT>
-""inoremap ' ''<LEFT>
-""vnoremap { "zdi^V{<C-R>z}<ESC>
-""vnoremap [ "zdi^V[<C-R>z]<ESC>
-""vnoremap ( "zdi^V(<C-R>z)<ESC>
-""vnoremap " "zdi^V"<C-R>z^V"<ESC>
-""vnoremap ' "zdi'<C-R>z'<ESC>
-
-" カッコをハイライトしない
-let loaded_matchparen = 1
-
-" 特定の拡張子を任意のファイルタイプに関連付ける
-augroup filetypedetect
-au! BufRead,BufNewFile *.tt     setfiletype html
-au! BufRead,BufNewFile *.xhtml  setfiletype html
-au! BufRead,BufNewFile *.erb    setfiletype ruby
-au! BufRead,BufNewFile *.t      setfiletype perl
-au! BufRead,BufNewFile *.cgi    setfiletype perl
-augroup END
-
-"☆とか※とかの対応
+set nocompatible
 set ambiwidth=double
-
 "set number
 set tabstop=4
 set tenc=utf8
@@ -76,8 +13,66 @@ set incsearch
 set laststatus=2
 "set showcmd
 "set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-
 set statusline=[%n]\ %t\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
+:set backspace=indent,eol,start 
+
+" for buftabs.vim
+"バッファタブにパスを省略してファイル名のみ表示する
+let g:buftabs_only_basename=1
+"バッファタブをステータスライン内に表示する
+let g:buftabs_in_statusline=1
+
+:let g:closetag_html_style=1 " htmlモードとかで閉じタグをc--で自動挿入
+let loaded_matchparen = 1 "カッコをハイライトしない
+
+noremap <C-j> :bprev!<CR>
+noremap <C-k> :bnext!<CR>
+map <C-C> <Esc>
+
+:map <silent> <C-o> :call BufferList()<CR>
+:cmap qq q!
+
+"インサートモードで移動
+noremap! <C-h> <Left>
+noremap! <C-l> <Right>
+noremap! <C-k> <Up>
+noremap! <C-j> <Down>
+noremap! <C-a> <Home>
+noremap! <C-e> <End>
+inoremap <silent> <expr> <C-e>  (pumvisible() ? "\<C-e>" : "\<End>")
+noremap! <C-d> <Del>
+nmap <silent> <C-L> <C-L>:noh<CR>
+
+"括弧を打ったら自動で閉じる
+"inoremap { {}<LEFT>
+"inoremap [ []<LEFT>
+"inoremap ( ()<LEFT>
+"inoremap " ""<LEFT>
+"inoremap ' ''<LEFT>
+"vnoremap { "zdi^V{<C-R>z}<ESC>
+"vnoremap [ "zdi^V[<C-R>z]<ESC>
+"vnoremap ( "zdi^V(<C-R>z)<ESC>
+"vnoremap " "zdi^V"<C-R>z^V"<ESC>
+"vnoremap ' "zdi'<C-R>z'<ESC>
+
+"テンプレート読み込み
+autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
+autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
+autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
+
+autocmd InsertLeave *  silent! wall
+
+au Filetype html,xml,xsl,ant source ~/.vim/plugin/closetag.vim
+
+" 特定の拡張子を任意のファイルタイプに関連付ける
+augroup filetypedetect
+au! BufRead,BufNewFile *.tt     setfiletype html
+au! BufRead,BufNewFile *.xhtml  setfiletype html
+au! BufRead,BufNewFile *.erb    setfiletype ruby
+au! BufRead,BufNewFile *.t      setfiletype perl
+au! BufRead,BufNewFile *.cgi    setfiletype perl
+augroup END
+
 function! GetStatusEx()
 let str = &fileformat
     if has("multi_byte") && &fileencoding != ""
@@ -86,8 +81,6 @@ let str = &fileformat
     let str = "[" . str . "]"
     return str
 endfunction
-
-nmap <silent> <C-L> <C-L>:noh<CR>
 
 syntax on
 
@@ -154,5 +147,3 @@ command! -bang -nargs=? Euc
 "endif
 "" 改行コードの自動認識
 "set fileformats=unix,dos,mac
-"
-"
