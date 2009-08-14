@@ -31,6 +31,7 @@ map <C-C> <Esc>
 
 :map <silent> <C-o> :call BufferList()<CR>
 :cmap qq q!
+inoremap pp use Data::Dumper;sub p {warn Dumper shift;my @c = caller;print STDERR "  at $c[1]:$c[2]\n\n"}<CR>
 
 "インサートモードで移動
 noremap! <C-h> <Left>
@@ -95,23 +96,23 @@ command! -bang -nargs=? Sjis
 command! -bang -nargs=? Euc
             \ edit<bang> ++enc=euc-jp <args>
 
-";に続けて打つと大文字に
-let s:sticky_table = {
-\'a' : 'A', 'b' : 'B', 'c' : 'C', 'd' : 'D', 'e' : 'E', 'f' : 'F', 'g' : 'G',
-\'h' : 'H', 'i' : 'I', 'j' : 'J', 'k' : 'K', 'l' : 'L', 'm' : 'M', 'n' : 'N',
-\'o' : 'O', 'p' : 'P', 'q' : 'Q', 'r' : 'R', 's' : 'S', 't' : 'T', 'u' : 'U',
-\'v' : 'V', 'w' : 'W', 'x' : 'X', 'y' : 'Y', 'z' : 'Z',
-\'<ESC>' : '<ESC>', 'J' : ';<ESC>', '<Space>' : ';', '<CR>' : ';<CR>'
-\}
-inoremap ;  <Nop>
-cnoremap ;  <Nop>
-snoremap ;  <Nop>
-for key in keys(s:sticky_table)
-    execute 'inoremap ' (';'.key)  (s:sticky_table[key])
-    execute 'cnoremap ' (';'.key)  (s:sticky_table[key])
-    execute 'snoremap ' (';'.key)  (s:sticky_table[key])
-endfor
-unlet s:sticky_table
+"";に続けて打つと大文字に
+"let s:sticky_table = {
+"\'a' : 'A', 'b' : 'B', 'c' : 'C', 'd' : 'D', 'e' : 'E', 'f' : 'F', 'g' : 'G',
+"\'h' : 'H', 'i' : 'I', 'j' : 'J', 'k' : 'K', 'l' : 'L', 'm' : 'M', 'n' : 'N',
+"\'o' : 'O', 'p' : 'P', 'q' : 'Q', 'r' : 'R', 's' : 'S', 't' : 'T', 'u' : 'U',
+"\'v' : 'V', 'w' : 'W', 'x' : 'X', 'y' : 'Y', 'z' : 'Z',
+"\'<ESC>' : '<ESC>', 'J' : ';<ESC>', '<Space>' : ';', '<CR>' : ';<CR>'
+"\}
+"inoremap ;  <Nop>
+"cnoremap ;  <Nop>
+"snoremap ;  <Nop>
+"for key in keys(s:sticky_table)
+"    execute 'inoremap ' (';'.key)  (s:sticky_table[key])
+"    execute 'cnoremap ' (';'.key)  (s:sticky_table[key])
+"    execute 'snoremap ' (';'.key)  (s:sticky_table[key])
+"endfor
+"unlet s:sticky_table
 
 "" 文字コードの自動認識
 "if &encoding !=# 'utf-8'
