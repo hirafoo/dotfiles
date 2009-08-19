@@ -31,7 +31,7 @@ map <C-C> <Esc>
 
 :map <silent> <C-o> :call BufferList()<CR>
 :cmap qq q!
-inoremap pp use Data::Dumper;sub p {warn Dumper shift;my @c = caller;print STDERR "  at $c[1]:$c[2]\n\n"}<CR>
+inoremap PP use Data::Dumper;sub p {warn Dumper shift;my @c = caller;print STDERR "  at $c[1]:$c[2]\n\n"}<CR>
 
 "インサートモードで移動
 noremap! <C-h> <Left>
