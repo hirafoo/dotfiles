@@ -86,12 +86,22 @@ history-all () { history -E 1 }
 chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
 
 # status bar
-preexec () {
-    if [ $TERM = "screen" ]; then
-        1="$1 " # deprecated.
-        echo -ne "\ek${${(s: :)1}[0]}\e\\"
-    fi
-}
+#preexec () {
+#    if [ $TERM = "screen" ]; then
+#        1="$1 " # deprecated.
+#        echo -ne "\ek${${(s: :)1}[0]}\e\\"
+#    fi
+#}
+
+case "$TERM" in
+xterm*|kterm*|rxvt*)
+    # screenを起動してない時はここを通る
+;;
+screen*)
+    # screen起動時はここを通る
+    printf "\033P\033]0;$USER@$HOSTNAME\007\033\\"
+;;
+esac
 
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/bin:~/bin
 
