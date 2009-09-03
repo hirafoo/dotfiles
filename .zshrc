@@ -78,7 +78,14 @@ alias up='svn up'
 #      screen -R
 #fi
 
-vip () { vi `perldoc -ml $1 | perl -pe 's/pod$/pm/'` }
+vip () {
+    i=1;
+    for p in $@; do
+        r[$i]=`perldoc -ml $p | perl -pe 's/pod$/pm/'`;
+        i=$i+1;
+    done
+    vi $r;
+}
 cdp () { cd `perldoc -ml $1 | perl -pe 's/[^\/]+\.\w+$//'` }
 cdpp () { cd `perldoc -ml $1 | perl -pe 's/\.pm$//'` }
 fin () { find . -name $1 V svn }
