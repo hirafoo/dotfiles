@@ -7,7 +7,7 @@ set shiftwidth=4
 set expandtab
 set showmode
 set ai
-set showmatch
+"set showmatch
 set hlsearch
 set incsearch
 set laststatus=2
