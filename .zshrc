@@ -59,6 +59,9 @@ alias m=more
 alias man='LANG=ja_JP.UTF-8 man'
 alias rb=ruby
 alias sc=screen
+alias sls="screen -ls"
+alias sr="screen -r"
+alias sx="screen -x"
 alias w3m='w3m -no-mouse'
 alias vi=vim
 alias -g G='| grep'
