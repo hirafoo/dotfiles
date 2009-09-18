@@ -66,6 +66,8 @@ alias w3m='w3m -no-mouse'
 alias vi=vim
 alias -g G='| grep'
 alias -g L='| less'
+alias -g S='| sort'
+alias -g U='| uniq'
 alias -g V='| grep -v'
 alias -g W='| wc'
 alias -g X='| xargs grep'
@@ -83,6 +85,7 @@ alias up='svn up'
 
 vip () {
     i=1;
+    r=();
     for p in $@; do
         r[$i]=`perldoc -ml $p | perl -pe 's/pod$/pm/'`;
         i=$i+1;
