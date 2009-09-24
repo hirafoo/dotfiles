@@ -115,7 +115,7 @@ command! -bang -nargs=? Euc
 "endfor
 "unlet s:sticky_table
 
-"" 文字コードの自動認識
+""" 文字コードの自動認識
 "if &encoding !=# 'utf-8'
 "  set encoding=japan
 "  set fileencoding=japan

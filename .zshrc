@@ -56,7 +56,8 @@ alias ll='ls -l'
 alias lla='ls -la'
 alias ls='ls --color=tty'
 alias m=more
-alias man='LANG=ja_JP.UTF-8 man'
+alias jman='LANG=ja_JP.UTF-8 man'
+#alias man='LANG=en_US.UTF-8 man'
 alias rb=ruby
 alias sc=screen
 alias sls="screen -ls"
@@ -66,6 +67,8 @@ alias w3m='w3m -no-mouse'
 alias vi=vim
 alias -g G='| grep'
 alias -g L='| less'
+alias -g S='| sort'
+alias -g U='| uniq'
 alias -g V='| grep -v'
 alias -g W='| wc'
 alias -g X='| xargs grep'
@@ -83,6 +86,7 @@ alias up='svn up'
 
 vip () {
     i=1;
+    r=();
     for p in $@; do
         r[$i]=`perldoc -ml $p | perl -pe 's/pod$/pm/'`;
         i=$i+1;
