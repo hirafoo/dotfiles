@@ -1,6 +1,9 @@
 if [ -e ~/.ssh/aliases ]; then
     source ~/.ssh/aliases
 fi
+if [ -e ~/.zshrc2 ]; then
+    source ~/.zshrc2
+fi
 
 stty stop undef
 
