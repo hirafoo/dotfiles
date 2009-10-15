@@ -1,8 +1,8 @@
 if [ -e ~/.ssh/aliases ]; then
     source ~/.ssh/aliases
 fi
-if [ -e ~/.zshrc2 ]; then
-    source ~/.zshrc2
+if [ -e ~/.zshrc_local ]; then
+    source ~/.zshrc_local
 fi
 
 stty stop undef
@@ -101,6 +101,9 @@ cdpp () { cd `perldoc -ml $1 | perl -pe 's/\.pm$//'` }
 fin () { find . -name $1 V svn }
 history-all () { history -E 1 }
 chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
+optime() {
+    cat /proc/uptime | awk '{print $1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
+}
 
 # status bar
 #preexec () {
