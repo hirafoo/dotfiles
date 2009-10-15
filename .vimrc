@@ -73,6 +73,7 @@ au! BufRead,BufNewFile *.xhtml  setfiletype html
 au! BufRead,BufNewFile *.erb    setfiletype ruby
 au! BufRead,BufNewFile *.t      setfiletype perl
 au! BufRead,BufNewFile *.cgi    setfiletype perl
+au! BufRead,BufNewFile *.conf   setfiletype conf
 augroup END
 
 function! GetStatusEx()
