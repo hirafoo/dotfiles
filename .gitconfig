@@ -8,9 +8,10 @@ lg = log -p
 
 [color]
 status = auto
+
 [user]
-	email = hirafoo@cpan.org
-	name = hirafoo
+email = hirafoo@cpan.org
+name = hirafoo
 
 [core]
-    excludesfile = /home/thirano/.gitignore
+excludesfile = /home/hirafoo/.gitignore
