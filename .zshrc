@@ -99,6 +99,16 @@ vip () {
 }
 cdp () { cd `perldoc -ml $1 | perl -pe 's/[^\/]+\.\w+$//'` }
 cdpp () { cd `perldoc -ml $1 | perl -pe 's/\.pm$//'` }
+vir () {
+    i=1;
+    r=();
+    for p in $@; do
+        r[$i]=`gem which $p`;
+        i=$i+1;
+    done
+    vi $r;
+}
+cdr () { cd `gem which $1 | perl -pe 's/[^\/]+\.\w+$//'` }
 fin () { find . -name $1 V svn }
 history-all () { history -E 1 }
 chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
