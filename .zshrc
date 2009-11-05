@@ -62,6 +62,7 @@ alias ls='ls --color=tty'
 alias m=more
 alias jman='LANG=ja_JP.UTF-8 man'
 #alias man='LANG=en_US.UTF-8 man'
+alias perldoc='LANG=C perldoc'
 alias rb=ruby
 alias sc=screen
 alias sls="screen -ls"
