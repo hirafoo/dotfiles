@@ -1,0 +1,37 @@
+"2.1 (created: 2009/05/21 13:13:06)
+
+map <C-k> gt
+map <C-j> gT
+map <C-c> Esc
+nmap <C-k> gt
+nmap <C-j> gT
+nmap <C-c> Esc
+vmap <C-k> gt
+vmap <C-j> gT
+vmap <C-c> Esc
+
+set focuscontent
+set complete=Sbl
+set defsearch=g
+set guioptions=brm
+set hlsearch
+set suggestengines=g
+set titlestring=Firefox
+set wildoptions=auto
+
+:style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+autocmd LocationChange .* js modes.passAllKeys = false
+autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
+
+" plugins
+" http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
+" sbmcommentsviewer.js
+map b :viewSBMComments<CR>
+let g:def_sbm_format = "id,timestamp,tagsAndComment"
+
+" char-hints-mod2.js -r33247
+let g:hintsio="io"
+let g:hintchars="asdfghjkl"
+
+" vim: set ft=vimperator:
