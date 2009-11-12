@@ -24,14 +24,22 @@ set wildoptions=auto
 autocmd LocationChange .* js modes.passAllKeys = false
 autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
 
-" plugins
-" http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
-" sbmcommentsviewer.js
+hi StatusLine color:black; background:#DDD; font-weight:normal;
+hi CompDesc color:#272; width:50%;
+hi Preview color:#44C;
+
+
+"""plugins http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
+"sbmcommentsviewer.js
 map b :viewSBMComments<CR>
 let g:def_sbm_format = "id,timestamp,tagsAndComment"
+let g:def_sbms = "hd"
+hi Message  padding-left: 0;
 
-" char-hints-mod2.js -r33247
+"char-hints-mod2.js -r33247
 let g:hintsio="io"
 let g:hintchars="asdfghjkl"
+
+"forcefocuscontent.js
 
 " vim: set ft=vimperator:
