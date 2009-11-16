@@ -60,6 +60,8 @@ alias ll='ls -l'
 alias lla='ls -la'
 alias ls='ls --color=tty'
 alias m=more
+alias ja="export LANG=ja_JP.UTF-8"
+alias en="export LANG=en_US.UTF-8"
 alias jman='LANG=ja_JP.UTF-8 man'
 #alias man='LANG=en_US.UTF-8 man'
 alias perldoc='perldoc -t'
