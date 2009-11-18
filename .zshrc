@@ -1,6 +1,3 @@
-if [ -e ~/.ssh/aliases ]; then
-    source ~/.ssh/aliases
-fi
 if [ -e ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
