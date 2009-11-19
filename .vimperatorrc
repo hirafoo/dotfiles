@@ -1,14 +1,6 @@
-"2.1 (created: 2009/05/21 13:13:06)
-
 map <C-k> gt
 map <C-j> gT
-map <C-c> Esc
-nmap <C-k> gt
-nmap <C-j> gT
-nmap <C-c> Esc
-vmap <C-k> gt
-vmap <C-j> gT
-vmap <C-c> Esc
+map <C-c> <C-[>
 
 set focuscontent
 set complete=Sbl
@@ -29,7 +21,8 @@ hi CompDesc color:#272; width:50%;
 hi Preview color:#44C;
 
 
-"""plugins http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
+"""plugins
+""http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
 "sbmcommentsviewer.js
 map b :viewSBMComments<CR>
 let g:def_sbm_format = "id,timestamp,tagsAndComment"
@@ -38,7 +31,7 @@ hi Message  padding-left: 0;
 
 "char-hints-mod2.js -r33247
 let g:hintsio="io"
-let g:hintchars="asdfghjkl"
+let g:hintchars="asdferv"
 
 "forcefocuscontent.js
 
