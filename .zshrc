@@ -60,7 +60,7 @@ alias m=more
 alias ja="export LANG=ja_JP.UTF-8"
 alias en="export LANG=en_US.UTF-8"
 alias jman='LANG=ja_JP.UTF-8 man'
-#alias man='LANG=en_US.UTF-8 man'
+alias man='LANG=C man'
 alias perldoc='perldoc -t'
 alias rb=ruby
 alias sc=screen
