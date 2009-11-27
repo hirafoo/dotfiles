@@ -18,6 +18,10 @@ set statusline=[%n]\ %t\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
 set backspace=indent,eol,start 
 :set helplang=ja,en
 
+"dicwin memo
+"c-d k
+"c-d n/p
+"c-d w/c//
 " for buftabs.vim
 "バッファタブにパスを省略してファイル名のみ表示する
 let g:buftabs_only_basename=1
