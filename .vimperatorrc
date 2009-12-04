@@ -11,9 +11,10 @@ set suggestengines=g
 set titlestring=Firefox
 set wildoptions=auto
 
-qmark r http://www.google.co.jp/reader/view/
 qmark b http://b.hatena.ne.jp/hirafoo/
 qmark g http://github.com/hirafoo
+qmark h http://mail.live.com/
+qmark r http://www.google.co.jp/reader/view/
 
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
@@ -23,7 +24,6 @@ autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys 
 hi StatusLine color:black; background:#DDD; font-weight:normal;
 hi CompDesc color:#272; width:50%;
 hi Preview color:#44C;
-
 
 """plugins
 ""http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
@@ -35,7 +35,7 @@ hi Message  padding-left: 0;
 
 "char-hints-mod2.js -r33247
 let g:hintsio="io"
-let g:hintchars="asdferv"
+let g:hintchars="qwerasdfzxcv"
 
 "forcefocuscontent.js
 
