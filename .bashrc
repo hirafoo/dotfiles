@@ -1,3 +1,7 @@
+if [ -e ~/.bashrc_local ]; then
+    source ~/.bashrc_local
+fi
+
 alias ..='cd ..'
 alias l=clear
 alias ls='ls --color -G'
