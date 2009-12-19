@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files=`ls -ad .[a-z]* | grep -v -e '^.git$'`
+files=`ls -ad .[a-z]* bin | grep -v -e '^.git$'`
 
 for file in $files
 do
