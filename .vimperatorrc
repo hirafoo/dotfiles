@@ -1,6 +1,7 @@
 map <C-k> gt
 map <C-j> gT
 map <C-c> <C-[>
+map <C-a> <C-v><C-a>
 
 set focuscontent
 set complete=Sbl
