@@ -1,4 +1,4 @@
 #!/bin/sh
-echo -n '^[''[5i'
+echo -n '''[5i'
 cat $*
-echo -n '^[''[4i'
+echo -n '''[4i'
