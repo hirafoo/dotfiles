@@ -2,3 +2,4 @@
 *.log
 MANIFEST.bak
 schema.rb
+.vimperator/info/

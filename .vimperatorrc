@@ -6,6 +6,7 @@ noremap j 3j
 noremap k 3k
 noremap l 5l
 noremap h 5h
+imap <C-a> <C-v><C-a>
 
 set focuscontent
 set complete=Sbl
@@ -35,7 +36,7 @@ hi Preview color:#44C;
 "sbmcommentsviewer.js
 map b :viewSBMComments<CR>
 let g:def_sbm_format = "id,timestamp,tagsAndComment"
-let g:def_sbms = "hd"
+let g:def_sbms = "h"
 hi Message  padding-left: 0;
 
 "char-hints-mod2.js -r33247
