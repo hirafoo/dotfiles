@@ -137,7 +137,7 @@ screen*)
 ;;
 esac
 
-PATH=$PATH:/sbin:/usr/sbin:/usr/local/bin:~/bin
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/bin:~/bin:/var/lib/gems/1.8/bin
 
 export PERL_AUTOINSTALL="--defaultdeps"
 export DBIC_NO_WARN_BAD_PERL=1
