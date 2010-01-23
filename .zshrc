@@ -30,6 +30,8 @@ zstyle ':completion:*:default' menu select=1 # 補完候補のカーソル選択
 
 #export LANG=ja_JP.UTF-8
 export LANG=en_US.UTF-8
+#LANGUAGE=ja_JP:ja:en_GB:en
+export LANGUAGE=en_US:en:en_GB:en
 export EDITOR=vim
 #export PAGER='less -N'
 export LESS="-R"
@@ -57,9 +59,9 @@ alias ll='ls -l'
 alias lla='ls -la'
 alias ls='ls --color=tty'
 alias m=more
-alias ja="export LANG=ja_JP.UTF-8"
-alias en="export LANG=en_US.UTF-8"
-alias jman='LANG=ja_JP.UTF-8 /usr/bin/man'
+alias ja="export LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en"
+alias en="export LANG=en_US.UTF-8 LANGUAGE=en_US:en:en_GB:en"
+alias jman='LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en /usr/bin/man'
 alias man='LANG=C man'
 alias perldoc='perldoc -t'
 alias rb=ruby
