@@ -5,6 +5,7 @@ br = branch --color
 co = checkout
 di = diff --color
 lg = log -p
+tree = log --graph --pretty=oneline --abbrev-commit --decorate
 
 [color]
 status = auto

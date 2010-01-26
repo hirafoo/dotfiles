@@ -44,8 +44,7 @@ bindkey '^R' history-incremental-search-backward
 
 PROMPT="[%B%~${default}%b] %E
 %b%# "
-hostname=`hostname`
-RPROMPT="[%n@${hostname}]"
+RPROMPT="[%n@%M]"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
