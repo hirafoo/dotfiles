@@ -1,4 +1,5 @@
-no strict;
+use strict;
+no strict "vars";
 use warnings;
 use Data::Dumper;
 use vars::declare;
