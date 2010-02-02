@@ -26,7 +26,13 @@ setopt magic_equal_subst    # --prefix=/usr などの = 以降でも補完でき
 
 unsetopt promptcr # 改行の無い出力を表示する
 
-zstyle ':completion:*:default' menu select=1 # 補完候補のカーソル選択を有効に
+
+# CVS ディレクトリへのcdを抑制
+# http://www.cuspy.org/wiki/zsh-lovers
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+# 補完候補のカーソル選択を有効に
+zstyle ':completion:*:default' menu select=1
 
 #export LANG=ja_JP.UTF-8
 export LANG=en_US.UTF-8
