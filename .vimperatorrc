@@ -2,8 +2,8 @@ map <C-k> gt
 map <C-j> gT
 map <C-c> <C-[>
 map <C-a> <C-v><C-a>
-noremap j 3j
-noremap k 3k
+noremap j 5j
+noremap k 5k
 noremap l 5l
 noremap h 5h
 imap <C-a> <C-v><C-a>
