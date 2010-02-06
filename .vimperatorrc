@@ -47,4 +47,8 @@ let g:hintchars="qwerasdfzxcv"
 
 "forcefocuscontent.js
 
+"feedSomeKeys_2.js
+autocmd LocationChange .* :fmapc
+autocmd LocationChange www\\.google\\.co\\.jp/reader :fmap! -vkey J j K k O o n v X p ?
+
 " vim: set ft=vimperator:
