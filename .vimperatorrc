@@ -26,8 +26,8 @@ qmark s http://www.google.co.jp/bookmarks/
 
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
-autocmd LocationChange .* js modes.passAllKeys = false
-autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
+"autocmd LocationChange .* js modes.passAllKeys = false
+"autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
 
 hi StatusLine color:black; background:#DDD; font-weight:normal;
 hi CompDesc color:#272; width:50%;
