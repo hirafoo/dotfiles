@@ -9,7 +9,7 @@ noremap h 5h
 imap <C-a> <C-v><C-a>
 
 set focuscontent
-set complete=Sbl
+set complete=lbS
 set defsearch=g
 set guioptions=brm
 set hlsearch
@@ -50,5 +50,8 @@ let g:hintchars="qwerasdfzxcv"
 "feedSomeKeys_2.js
 autocmd LocationChange .* :fmapc
 autocmd LocationChange www\\.google\\.co\\.jp/reader :fmap! -vkey J j K k O o n v X p ?
+autocmd LocationChange mail\.google\.com/mail :fmap c / y j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+
+echo "loaded."
 
 " vim: set ft=vimperator:
