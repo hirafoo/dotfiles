@@ -31,6 +31,7 @@ let loaded_matchparen = 1 "カッコをハイライトしない
 
 noremap <C-j> :bprev!<CR>
 noremap <C-k> :bnext!<CR>
+nnoremap x "_x
 map <C-C> <Esc>
 
 :map <silent> <C-o> :call BufferList()<CR>
