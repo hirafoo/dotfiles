@@ -23,6 +23,7 @@ qmark h http://mail.live.com/
 qmark m https://mail.google.com/
 qmark r http://www.google.co.jp/reader/view/
 qmark s http://www.google.co.jp/bookmarks/
+qmark x http://mixi.jp/
 
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
