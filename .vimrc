@@ -2,6 +2,7 @@ set nocompatible
 set ambiwidth=double
 set tabstop=4
 set tenc=utf8
+set enc=utf8
 set shiftwidth=4
 set expandtab
 set showmode
@@ -62,7 +63,6 @@ nmap <silent> <C-L> <C-L>:noh<CR>
 "vnoremap " "zdi^V"<C-R>z^V"<ESC>
 "vnoremap ' "zdi'<C-R>z'<ESC>
 
-"テンプレート読み込み
 autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
 autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
@@ -71,7 +71,6 @@ autocmd InsertLeave *  silent! wall
 
 au Filetype html,xml,xsl,ant source ~/.vim/plugin/closetag.vim
 
-" 特定の拡張子を任意のファイルタイプに関連付ける
 augroup filetypedetect
 au! BufRead,BufNewFile *.tt     setfiletype html
 au! BufRead,BufNewFile *.xhtml  setfiletype html
