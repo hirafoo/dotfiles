@@ -1,6 +1,6 @@
 noremap <c-k> gt
 noremap <c-j> gT
-noremap <c-c> <c-[>
+noremap <c-c> <esc>
 noremap <c-a> <c-v><c-a>
 noremap j 5j
 noremap k 5k
@@ -43,6 +43,7 @@ hi Preview color:#44C;
 map b :viewSBMComments<CR>
 let g:def_sbm_format = "id,timestamp,tagsAndComment"
 let g:def_sbms = "h"
+let g:sbm_comments_viewer_filter_nocomments="true"
 hi Message  padding-left: 0;
 
 "char-hints-mod2.js -r33247
@@ -56,6 +57,9 @@ autocmd LocationChange .* :fmapc
 autocmd LocationChange www\\.google\\.co\\.jp/reader :fmap! -vkey J j K k O o n v X p ?
 autocmd LocationChange mail\.google\.com/mail :fmap c / y j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
 
-echo "loaded."
+"appendAnchor.js
+let g:auto_append_anchor = "true"
+
+echo "loaded!"
 
 " vim: set ft=vimperator:
