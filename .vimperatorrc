@@ -11,6 +11,7 @@ inoremap <c-a> <c-v><c-a>
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
+set newtab=all
 set focuscontent
 set complete=lbS
 set defsearch=g
