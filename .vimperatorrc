@@ -1,12 +1,15 @@
-map <C-k> gt
-map <C-j> gT
-map <C-c> <C-[>
-map <C-a> <C-v><C-a>
+noremap <c-k> gt
+noremap <c-j> gT
+noremap <c-c> <c-[>
+noremap <c-a> <c-v><c-a>
 noremap j 5j
 noremap k 5k
 noremap l 5l
 noremap h 5h
-imap <C-a> <C-v><C-a>
+noremap <silent> <c-l> <c-l>:noh<cR>
+inoremap <c-a> <c-v><c-a>
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
 
 set focuscontent
 set complete=lbS
