@@ -22,6 +22,7 @@ set titlestring=Firefox
 set wildoptions=auto
 
 qmark b http://b.hatena.ne.jp/hirafoo/
+qmark d http://d.hatena.ne.jp/hirafoo/
 qmark g http://github.com/hirafoo
 qmark h http://mail.live.com/
 qmark m https://mail.google.com/
