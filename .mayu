@@ -1,0 +1,5 @@
+include "109.mayu"
+key S-C-H = Left
+key S-C-J = Down
+key S-C-K = Up
+key S-C-L = Right
