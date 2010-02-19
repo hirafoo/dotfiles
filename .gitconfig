@@ -1,14 +1,17 @@
 [alias]
 st = status
 ci = commit -a
-br = branch --color
+br = branch
 co = checkout
-di = diff --color
+di = diff
 lg = log -p
 tree = log --graph --pretty=oneline --abbrev-commit --decorate
 
 [color]
+diff = auto
 status = auto
+branch = auto
+interactive = auto
 
 [user]
 email = hirafoo@cpan.org
