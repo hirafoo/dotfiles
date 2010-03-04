@@ -60,7 +60,7 @@ alias l=clear
 alias la='ls -A'
 alias le=less
 alias ll='ls -l'
-alias lla='ls -la'
+alias lla='ls -lA'
 alias ls='ls --color=tty'
 alias m=more
 alias ja="export LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en"
