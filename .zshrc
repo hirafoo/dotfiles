@@ -26,7 +26,6 @@ setopt magic_equal_subst    # --prefix=/usr などの = 以降でも補完でき
 
 unsetopt promptcr # 改行の無い出力を表示する
 
-
 # CVS ディレクトリへのcdを抑制
 # http://www.cuspy.org/wiki/zsh-lovers
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
@@ -41,13 +40,14 @@ export LANGUAGE=en_US:en:en_GB:en
 export EDITOR=vim
 #export PAGER='less -N'
 export LESS="-R"
+export DBIC_NO_WARN_BAD_PERL=1
 
 bindkey -e
-bindkey '^R' history-incremental-search-backward
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
 
 #PROMPT='[%n@%m]%# '
 #RPROMPT='[%~]'
-
 PROMPT="[%B%~${default}%b] %E
 %b%# "
 RPROMPT="[%n@%M]"
@@ -56,7 +56,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-### my aliases
 alias l=clear
 alias la='ls -a'
 alias le=less
@@ -69,6 +68,7 @@ alias en="export LANG=en_US.UTF-8 LANGUAGE=en_US:en:en_GB:en"
 alias jman='LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en /usr/bin/man'
 alias man='LANG=C man'
 alias perldoc='perldoc -t'
+alias pv='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "$module ", ${"$module\::VERSION"} }'"'"
 alias rb=ruby
 alias sc=screen
 alias sls="screen -ls"
@@ -145,8 +145,3 @@ screen*)
 esac
 
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/bin:~/bin:/var/lib/gems/1.8/bin
-
-export PERL_AUTOINSTALL="--defaultdeps"
-export DBIC_NO_WARN_BAD_PERL=1
-
-alias pv='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "$module ", ${"$module\::VERSION"} }'"'"
