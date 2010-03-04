@@ -57,7 +57,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 alias l=clear
-alias la='ls -a'
+alias la='ls -A'
 alias le=less
 alias ll='ls -l'
 alias lla='ls -la'
