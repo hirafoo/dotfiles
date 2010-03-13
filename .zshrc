@@ -125,6 +125,9 @@ chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
 optime() {
     cat /proc/uptime | awk '{print $1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
 }
+vm () {
+    man $1 | col -b | vi -R -
+}
 
 # status bar
 #preexec () {
