@@ -4,6 +4,7 @@ ci = commit -a
 br = branch
 co = checkout
 di = diff
+pu = pull
 lg = log -p
 tree = log --graph --pretty=oneline --abbrev-commit --decorate
 
