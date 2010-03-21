@@ -53,8 +53,8 @@ PROMPT="[%B%~${default}%b] %E
 RPROMPT="[%n@%M]"
 
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=10000
+SAVEHIST=10000
 
 alias l=clear
 alias la='ls -A'
@@ -125,9 +125,8 @@ chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
 optime() {
     cat /proc/uptime | awk '{print $1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
 }
-vm () {
-    man $1 | col -b | vi -R -
-}
+vm ()   { man $1 | col -b | vi -R - }
+jvm () { jman $1 | col -b | vi -R - }
 
 # status bar
 #preexec () {
