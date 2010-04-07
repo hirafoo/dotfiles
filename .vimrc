@@ -102,6 +102,8 @@ command! -bang -nargs=? Sjis
             \ edit<bang> ++enc=sjis <args>
 command! -bang -nargs=? Euc
             \ edit<bang> ++enc=euc-jp <args>
+command! -bang -nargs=? Tmt
+            \ setfiletype tmt
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
