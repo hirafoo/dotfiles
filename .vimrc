@@ -79,6 +79,7 @@ au! BufRead,BufNewFile *.t      setfiletype perl
 au! BufRead,BufNewFile *.cgi    setfiletype perl
 au! BufRead,BufNewFile *.psgi   setfiletype perl
 au! BufRead,BufNewFile *.conf   setfiletype conf
+au! BufRead,BufNewFile *.mt     setfiletype tmt
 augroup END
 
 function! GetStatusEx()
