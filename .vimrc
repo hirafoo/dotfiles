@@ -79,7 +79,7 @@ au! BufRead,BufNewFile *.t      setfiletype perl
 au! BufRead,BufNewFile *.cgi    setfiletype perl
 au! BufRead,BufNewFile *.psgi   setfiletype perl
 au! BufRead,BufNewFile *.conf   setfiletype conf
-au! BufRead,BufNewFile *.mt     setfiletype tmt
+au! BufRead,BufNewFile *.mt     setfiletype tmt2html
 augroup END
 
 function! GetStatusEx()
@@ -104,7 +104,7 @@ command! -bang -nargs=? Sjis
 command! -bang -nargs=? Euc
             \ edit<bang> ++enc=euc-jp <args>
 command! -bang -nargs=? Tmt
-            \ setfiletype tmt
+            \ setfiletype tmt2html
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
