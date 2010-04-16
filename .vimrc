@@ -105,6 +105,8 @@ command! -bang -nargs=? Euc
             \ edit<bang> ++enc=euc-jp <args>
 command! -bang -nargs=? Tmt
             \ setfiletype tmt2html
+command! -bang -nargs=? Js
+            \ setfiletype javascript
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
