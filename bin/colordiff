@@ -31,7 +31,7 @@ my $author       = 'Dave Ewart';
 my $author_email = 'davee@sungate.co.uk';
 my $app_www      = 'http://colordiff.sourceforge.net/';
 my $copyright    = '(C)2002-2009';
-my $show_banner  = 1;
+my $show_banner  = 0;
 my $color_patch  = 0;
 
 # ANSI sequences for colours
