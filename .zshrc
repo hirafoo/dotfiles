@@ -51,7 +51,17 @@ bindkey '^S' history-incremental-pattern-search-forward
 #RPROMPT='[%~]'
 PROMPT="[%B%~${default}%b] %E
 %b%# "
-RPROMPT="[%n@%M]"
+#RPROMPT="[%n@%M]"
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{green}%1v%f|) [%n@%M]"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
