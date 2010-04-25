@@ -67,6 +67,12 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+alias gd='git di'
+alias gi='git ci'
+alias gu='git pull'
+alias gp='git push'
+alias go='git co .'
+alias gt='git st'
 alias l=clear
 alias la='ls -A'
 alias le=less
