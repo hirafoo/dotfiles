@@ -68,6 +68,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 alias gd='git di'
+alias gn='git remote -v'
 alias gi='git ci'
 alias gu='git pull'
 alias gp='git push'
