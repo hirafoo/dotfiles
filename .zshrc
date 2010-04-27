@@ -93,6 +93,7 @@ alias sls="screen -ls"
 alias sr="screen -r"
 alias sx="screen -x"
 alias w3m='w3m -no-mouse'
+alias vi=vim
 alias vie="vim -u ~/.vimrc_euc"
 alias -g G='| grep'
 alias -g H='| head'
