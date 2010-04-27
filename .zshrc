@@ -6,7 +6,7 @@ stty stop undef
 
 # zsh setting
 autoload -U compinit     # 補完機能の強化
-compinit
+compinit -u
 
 setopt auto_menu            # TAB で順に補完候補を切り替える
 setopt auto_pushd           # 自動でpushd 
@@ -68,6 +68,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 alias gd='git di'
+alias gn='git remote -v'
 alias gi='git ci'
 alias gu='git pull'
 alias gp='git push'
@@ -92,7 +93,6 @@ alias sls="screen -ls"
 alias sr="screen -r"
 alias sx="screen -x"
 alias w3m='w3m -no-mouse'
-alias vi=vim
 alias vie="vim -u ~/.vimrc_euc"
 alias -g G='| grep'
 alias -g H='| head'
