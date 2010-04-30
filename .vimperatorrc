@@ -10,6 +10,8 @@ noremap <silent> <c-l> <c-l>:noh<cR>
 inoremap <c-a> <c-v><c-a>
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+cnoremap <a-b> <c-left>
+cnoremap <a-f> <c-right>
 
 set newtab=all
 set focuscontent
