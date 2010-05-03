@@ -6,7 +6,6 @@
 ! keycode 9   Escape
 
 ! muhenkan to return
-remove lock = Eisu_toggle 
 keycode 102 = Return
 
 ! henkan to ctrl
@@ -14,4 +13,5 @@ keycode 100 = Control_L
 add control = Control_L
 
 ! capslock to esc
+remove lock = Eisu_toggle 
 keycode 66 = Escape
