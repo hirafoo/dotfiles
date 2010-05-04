@@ -42,7 +42,7 @@ export EDITOR=vim
 #export PAGER='less -N'
 export LESS="-R"
 export DBIC_NO_WARN_BAD_PERL=1
-export MYSQL_PS1='[\R:\m:\s] (\U) mysql> '
+export MYSQL_PS1="[\R:\m:\s] (\U:\d)\nmysql> "
 
 bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
@@ -68,12 +68,12 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-alias gd='git di'
+alias gl='git di'
 alias gn='git remote -v'
 alias gi='git ci'
 alias gu='git pull'
 alias gp='git push'
-alias go='git co .'
+alias go='git co'
 alias gt='git st'
 alias l=clear
 alias la='ls -A'
