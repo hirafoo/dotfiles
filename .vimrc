@@ -1,3 +1,7 @@
+if filereadable( $HOME . "/.vimrc_before" )
+  source ~/.vimrc_before
+endif
+
 set nocompatible
 set ambiwidth=double
 set tabstop=4
@@ -179,3 +183,7 @@ command! -bang -nargs=? Html
 "  endfunction
 "  autocmd BufReadPost * call AU_ReCheck_FENC()
 "endif
+
+if filereadable( $HOME . "/.vimrc_after" )
+  source ~/.vimrc_after
+endif
