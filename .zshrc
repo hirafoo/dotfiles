@@ -1,6 +1,9 @@
 if [ -e ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+if [ -e ~/.zshrc_before ]; then
+    source ~/.zshrc_before
+fi
 
 stty stop undef
 
@@ -144,7 +147,7 @@ history-all () { history -E 1 }
 chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
 optime() {
     cat /proc/uptime | awk '{print $1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
-}
+} # or use uptime(only BSD?)
 vm ()     { man $1 | col -b | vi -R - }
 jvm ()   { jman $1 | col -b | vi -R - }
 pm () { perldoc $1 | col -b | vi -R - }
@@ -168,3 +171,7 @@ screen*)
 esac
 
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/bin:~/bin:/var/lib/gems/1.8/bin
+
+if [ -e ~/.zshrc_after ]; then
+    source ~/.zshrc_after
+fi
