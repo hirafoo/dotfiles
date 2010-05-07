@@ -170,7 +170,7 @@ screen*)
 ;;
 esac
 
-PATH=$PATH:/sbin:/usr/sbin:/usr/local/bin:~/bin:/var/lib/gems/1.8/bin
+PATH=~/bin:$PATH:/sbin:/usr/sbin:/usr/local/bin:/var/lib/gems/1.8/bin
 
 if [ -e ~/.zshrc_after ]; then
     source ~/.zshrc_after
