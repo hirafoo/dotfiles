@@ -70,10 +70,10 @@ nmap <silent> <C-L> <C-L>:noh<CR>
 autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
 autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
-
 autocmd InsertLeave *  silent! wall
 
 au Filetype html,xml,xsl,ant source ~/.vim/plugin/closetag.vim
+au FileType sql  set timeoutlen=0
 
 augroup filetypedetect
 au! BufRead,BufNewFile *.tt     setfiletype html
