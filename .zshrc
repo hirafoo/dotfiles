@@ -58,8 +58,8 @@ PROMPT="[%B%~${default}%b] %E
 #RPROMPT="[%n@%M]"
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
