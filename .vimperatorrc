@@ -1,6 +1,5 @@
 noremap <c-k> gt
 noremap <c-j> gT
-noremap <c-c> <esc>
 noremap <c-a> <c-v><c-a>
 noremap j 5j
 noremap k 5k
