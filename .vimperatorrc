@@ -6,8 +6,8 @@ noremap j 5j
 noremap k 5k
 noremap l 5l
 noremap h 5h
-noremap w 5j
-noremap e 5k
+noremap w 5k
+noremap e 5j
 noremap <silent> <c-l> <c-l>:noh<cR>
 inoremap <c-a> <c-v><c-a>
 cnoremap <c-p> <up>
