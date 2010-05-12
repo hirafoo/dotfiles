@@ -71,6 +71,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+alias gb='git br'
 alias gl='git di'
 alias gn='git remote -v'
 alias gi='git ci'
