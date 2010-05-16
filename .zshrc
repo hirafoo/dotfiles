@@ -36,6 +36,8 @@ zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
 # 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
+# cache
+zstyle ':completion:*' use-cache true
 
 #export LANG=ja_JP.UTF-8
 export LANG=en_US.UTF-8
