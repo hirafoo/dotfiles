@@ -26,13 +26,41 @@ set fileformats=unix,dos,mac
 "c-d k
 "c-d n/p
 "c-d w/c//
-" for buftabs.vim
+
+" buftabs.vim
 "バッファタブにパスを省略してファイル名のみ表示する
 let g:buftabs_only_basename=1
 "バッファタブをステータスライン内に表示する
 let g:buftabs_in_statusline=1
 
-:let g:closetag_html_style=1 " htmlモードとかで閉じタグをc--で自動挿入
+hi Pmenu ctermbg=0
+hi PmenuSel ctermbg=1
+hi PmenuSbar ctermbg=3
+hi PmenuThumb ctermbg=2
+
+" autocomplpop.vim
+"<TAB>で補完
+" {{{ Autocompletion using the TAB key
+" This function determines, wether we are on the start of the line text (then tab indents) or
+" if we want to try autocompletion
+function! InsertTabWrapper()
+        let col = col('.') - 1
+        if !col || getline('.')[col - 1] !~ '\k'
+                return "\<TAB>"
+        else
+                if pumvisible()
+                        return "\<C-N>"
+                else
+                        return "\<C-N>\<C-P>"
+                end
+        endif
+endfunction
+" Remap the tab key to select action with InsertTabWrapper
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" }}} Autocompletion using the TAB key
+
+
+let g:closetag_html_style=1 " htmlモードとかで閉じタグをc--で自動挿入
 let loaded_matchparen = 1 "カッコをハイライトしない
 
 noremap <C-j> :bprev!<CR>
@@ -41,8 +69,8 @@ noremap <C-k> :bnext!<CR>
 "nnoremap x "_x
 map <C-C> <Esc>
 
-:map <silent> <C-o> :call BufferList()<CR>
-:cmap qq q!
+map <silent> <C-o> :call BufferList()<CR>
+cmap qq q!
 
 "インサートモードで移動
 noremap! <C-h> <Left>
