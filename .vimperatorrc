@@ -11,8 +11,11 @@ noremap w 5k
 noremap e 5j
 noremap <silent> <c-l> <c-l>:noh<cR>
 inoremap <c-a> <c-v><c-a>
+imap <C-i> Nop
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+cnoremap <c-b> <left>
+cnoremap <c-f> <right>
 cnoremap <a-b> <c-left>
 cnoremap <a-f> <c-right>
 
