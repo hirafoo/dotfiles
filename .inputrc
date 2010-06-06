@@ -1,0 +1,5 @@
+$if mysql
+    "\C-xd": "show databases;"
+    "\C-xt": "show tables;"
+    "\C-xc": "show create table \\G"
+$endif
