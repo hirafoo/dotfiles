@@ -21,6 +21,7 @@ set statusline=[%n]\ %t\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
 set backspace=indent,eol,start 
 set helplang=ja,en
 set fileformats=unix,dos,mac
+set nofoldenable "折り畳みがうざい
 
 "dicwin memo
 "c-d k
