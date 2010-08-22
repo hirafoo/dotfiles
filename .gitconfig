@@ -8,7 +8,7 @@ in = remote -v
 pu = pull
 lg = log -p
 tree = log --graph --pretty=oneline --abbrev-commit --decorate
-graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%cn] %Cgreen%d%Creset %s\" --all --date=short 
+graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%cn] %Cgreen%d%Creset %s\" --all --date=short
 
 [color]
 diff = auto
