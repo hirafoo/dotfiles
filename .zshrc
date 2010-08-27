@@ -77,7 +77,6 @@ alias gb='git br'
 alias gl='git di'
 alias gn='git remote -v'
 alias gi='git ci'
-alias gu='git pull'
 alias gp='git push'
 alias go='git co'
 alias gt='git st'
@@ -124,6 +123,14 @@ alias up='svn up'
 #      screen -R
 #fi
 
+gu () {
+    branch=$1;
+    if [ -z $branch ]; then
+        branch="master";
+    fi
+
+    git pull origin $branch
+}
 vip () {
     i=1;
     r=();
