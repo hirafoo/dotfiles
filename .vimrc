@@ -59,6 +59,7 @@ noremap! <C-j> <Down>
 noremap! <C-a> <Home>
 noremap! <C-e> <End>
 inoremap <silent> <expr> <C-e>  (pumvisible() ? "\<C-e>" : "\<End>")
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>\<CR>" : "\<CR>"
 noremap! <C-d> <Del>
 nmap <silent> <C-L> <C-L>:noh<CR>
 
