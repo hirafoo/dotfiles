@@ -9,6 +9,7 @@ noremap l 5l
 noremap h 5h
 noremap w 5k
 noremap e 5j
+noremap U :undo<Space>
 noremap <silent> <c-l> <c-l>:noh<cR>
 inoremap <c-a> <c-v><c-a>
 imap <C-i> Nop
