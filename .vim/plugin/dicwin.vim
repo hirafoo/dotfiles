@@ -38,7 +38,7 @@ let s:lastpattern = ''
 " Kemaps
 let s:use_mapleader = 0
 if !exists('g:mapleader')
-  let g:mapleader = "\<C-q>"
+  let g:mapleader = "\<C-t>"
   let s:use_mapleader = 1
 endif
 nnoremap <silent> <Leader>k :call <SID>OpenDictionary(g:dicwin_dictpath, expand('<cword>'))<CR>
