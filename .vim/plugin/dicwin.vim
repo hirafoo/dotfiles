@@ -36,6 +36,7 @@ let s:lastword = ''
 let s:lastpattern = ''
 
 " Kemaps
+" CHANGE HERE!!
 let s:use_mapleader = 0
 if !exists('g:mapleader')
   let g:mapleader = "\<C-t>"
