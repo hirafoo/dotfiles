@@ -129,7 +129,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let w:buftabs_enabled = 0
-let w:original_statusline = &statusline
+let w:original_statusline = "%=" . &statusline
 
 "
 " Don't bother when in diff mode
@@ -286,7 +286,7 @@ function! Buftabs_show(deleted_buf)
 	" (persistent)
 
 	if exists("g:buftabs_in_statusline")
-		let &l:statusline = l:list . "%=" . w:original_statusline
+		let &l:statusline = l:list . w:original_statusline
 	else
 		redraw
 		call Pecho(l:list)
