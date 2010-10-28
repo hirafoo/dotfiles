@@ -17,7 +17,8 @@ set incsearch
 set laststatus=2
 "set showcmd
 "set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-set statusline=[%n]\ %t\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
+"set statusline=[%n]\ %t\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
+set statusline=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
 set backspace=indent,eol,start 
 set helplang=ja,en
 set fileformats=unix,dos,mac
