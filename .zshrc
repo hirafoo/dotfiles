@@ -78,6 +78,7 @@ alias gl='git di'
 alias gn='git remote -v'
 alias gi='git ci'
 alias go='git co'
+alias gp='git push'
 alias gt='git st'
 alias l=clear
 alias la='ls -A'
@@ -121,15 +122,6 @@ alias up='svn up'
 #if [ $SHLVL = 1 ];then
 #      screen -R
 #fi
-#
-gp () {
-    branch=$1;
-    if [ -z $branch ]; then
-        branch="master";
-    fi
-
-    git push origin $branch
-}
 gu () {
     branch=$1;
     if [ -z $branch ]; then

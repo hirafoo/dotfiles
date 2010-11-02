@@ -22,3 +22,6 @@ name = hirafoo
 
 [core]
 excludesfile = /home/hirafoo/.gitignore
+
+[push]
+default = current
