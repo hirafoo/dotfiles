@@ -38,6 +38,8 @@ zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
 zstyle ':completion:*:default' menu select=1
 # cache
 zstyle ':completion:*' use-cache true
+# 高速化らしい
+zstyle ':completion:*' accept-exact '*(N)'
 
 #export LANG=ja_JP.UTF-8
 export LANG=en_US.UTF-8
