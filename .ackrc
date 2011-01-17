@@ -1,0 +1,4 @@
+--pager
+less -R
+--type-add
+perl=.inc
