@@ -11,6 +11,8 @@ stty stop undef
 autoload -U compinit     # 補完機能の強化
 compinit -u
 
+autoload -Uz zmv
+
 setopt auto_menu            # TAB で順に補完候補を切り替える
 setopt auto_pushd           # 自動でpushd 
 setopt append_history       # 複数の zsh を同時に使う時など history ファイルに上書きせず追加する
@@ -104,6 +106,7 @@ alias sx="screen -x"
 alias w3m='w3m -no-mouse'
 alias vi=vim
 alias vie="vim -u ~/.vimrc_euc"
+alias zmv='noglob zmv -W'
 alias -g G='| grep'
 alias -g H='| head'
 alias -g L='| less'
