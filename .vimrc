@@ -125,6 +125,11 @@ command! -bang -nargs=? Js
 command! -bang -nargs=? Html
             \ setfiletype html
 
+"行末のスペースを可視化
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+autocmd WinEnter * match WhitespaceEOL /\s\+$/
+
 "";に続けて打つと大文字に
 "let s:sticky_table = {
 "\'a' : 'A', 'b' : 'B', 'c' : 'C', 'd' : 'D', 'e' : 'E', 'f' : 'F', 'g' : 'G',
