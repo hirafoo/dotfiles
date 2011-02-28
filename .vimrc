@@ -19,7 +19,7 @@ set laststatus=2
 "set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 "set statusline=[%n]\ %t\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
 set statusline=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
-set backspace=indent,eol,start 
+set backspace=indent,eol,start
 set helplang=ja,en
 set fileformats=unix,dos,mac
 set nofoldenable "折り畳みがうざい
@@ -46,6 +46,7 @@ let loaded_matchparen = 1 "カッコをハイライトしない
 
 noremap <C-j> :bprev!<CR>
 noremap <C-k> :bnext!<CR>
+nnoremap Y y$
 "xで削除した文字をレジスタに入れない
 "nnoremap x "_x
 map <C-C> <Esc>
