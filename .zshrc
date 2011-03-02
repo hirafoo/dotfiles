@@ -14,7 +14,7 @@ compinit -u
 autoload -Uz zmv
 
 setopt auto_menu            # TAB で順に補完候補を切り替える
-setopt auto_pushd           # 自動でpushd 
+setopt auto_pushd           # 自動でpushd
 setopt append_history       # 複数の zsh を同時に使う時など history ファイルに上書きせず追加する
 setopt hist_ignore_dups     # 直前と同じコマンドラインはヒストリに追加しない
 setopt hist_ignore_space    # コマンドラインの先頭がスペースで始まる場合ヒストリに追加しない
@@ -49,6 +49,7 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US:en:en_GB:en
 export EDITOR=vim
 #export PAGER='less -N'
+#export PAGER='less -S -# 5'
 export LESS="-R"
 export DBIC_NO_WARN_BAD_PERL=1
 export MYSQL_PS1="[\R:\m:\s] (\U:\d)\nmysql> "
@@ -92,6 +93,7 @@ alias lla='ls -lA'
 alias lld='ls -ld'
 alias ls='ls --color=tty'
 alias m=more
+alias mysql="mysql --pager='less -S -# 5'"
 alias ja="export LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en"
 alias en="export LANG=en_US.UTF-8 LANGUAGE=en_US:en:en_GB:en"
 alias jman='LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en /usr/bin/man'
