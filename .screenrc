@@ -14,7 +14,7 @@ vbell off
 bufferfile /tmp/screen_copybuff
 bind  eval 'exec sh -c "winclip /tmp/screen_copybuff"'
 
-# emacs like split 
+# emacs like split
 #bind -c REGION 3 split -v
 bind -c REGION 2 split
 bind -c REGION 1 only

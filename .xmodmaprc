@@ -13,5 +13,5 @@ keycode 100 = Control_L
 add control = Control_L
 
 ! capslock to esc
-remove lock = Eisu_toggle 
+remove lock = Eisu_toggle
 keycode 66 = Escape
