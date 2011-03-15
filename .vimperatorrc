@@ -68,7 +68,7 @@ let g:hintchars="qwerasdfzxcv"
 "feedSomeKeys_2.js
 autocmd LocationChange .* :fmapc
 autocmd LocationChange www\\.google\\.co\\.jp/reader :fmap! -vkey J j K k O o n v X p ?
-autocmd LocationChange mail\.google\.com/mail :fmap c / y j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+autocmd LocationChange mail\.google\.com/ :fmap c / y j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
 
 "appendAnchor.js
 let g:auto_append_anchor = "true"
