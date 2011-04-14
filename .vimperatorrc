@@ -40,6 +40,7 @@ qmark r http://www.google.co.jp/reader/view/
 qmark s http://www.google.co.jp/bookmarks/
 qmark t http://twitter.com/login
 qmark x http://mixi.jp/
+qmark y http://www.yahoo.co.jp/
 
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
