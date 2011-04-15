@@ -93,7 +93,7 @@ alias lla='ls -lA'
 alias lld='ls -ld'
 alias ls='ls --color=tty'
 alias m=more
-alias mysql="mysql --pager='less -S -# 5'"
+#alias mysql="mysql --pager='less -S -# 5'"
 alias ja="export LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en"
 alias en="export LANG=en_US.UTF-8 LANGUAGE=en_US:en:en_GB:en"
 alias jman='LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en /usr/bin/man'
