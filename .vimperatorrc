@@ -24,11 +24,11 @@ set newtab=all
 set focuscontent
 set complete=Slb
 set defsearch=g
-"set guioptions=brm
+set guioptions=brm
 set hlsearch
 set suggestengines=g
 set titlestring=Firefox
-"set wildoptions=auto
+set wildoptions=auto
 
 qmark b http://b.hatena.ne.jp/hirafoo/
 qmark d http://d.hatena.ne.jp/hirafoo/
