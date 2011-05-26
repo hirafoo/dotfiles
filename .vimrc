@@ -82,6 +82,7 @@ autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
 autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
 autocmd InsertLeave *  silent! wall
+autocmd FileType perl set isfname-=-
 
 au Filetype html,xml,xsl,ant source ~/.vim/plugin/closetag.vim
 au FileType sql  set timeoutlen=0
