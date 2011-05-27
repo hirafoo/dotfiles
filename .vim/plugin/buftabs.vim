@@ -59,25 +59,20 @@
 "    
 "
 " * g:buftabs_active_highlight_group
-" * g:buftabs_inactive_highlight_group
 "
 "   The name of a highlight group (:help highligh-groups) which is used to
-"   show the name of the current active buffer and of all other inactive
-"   buffers. If these variables are not defined, no highlighting is used.
-"   (Highlighting is only functional when g:buftabs_in_statusline is enabled)
+"   show the name of the current active buffer. If this variable is not
+"   defined, no highlighting is used. (Highlighting is only functional when 
+"   g:buftabs_in_statusline is enabled)
 "
 "   :let g:buftabs_active_highlight_group="Visual"
 "
 "
-" * g:buftabs_marker_start   [
-" * g:buftabs_marker_end     ]
-" * g:buftabs_separator      -
+" Bugs
+" ----
 "
-"   These strings are drawn around each tab as separators.
-"
-"   :let g:buftabs_separator = "."  
-"   :let g:buftabs_marker_start = "("
-"   :let g:buftabs_marker_end = ")"       
+" Vim's 'set hidden' option is known to break this plugin - for some reason
+" vim will overwrite the buftabs when this option is enabled. 
 "
 "
 " Changelog
@@ -112,73 +107,36 @@
 " 0.11 2008-02-29  Added optional syntax highlighting to active buffer name
 "
 " 0.12 2009-03-18  Fixed support for split windows
-"
-" 0.13 2009-05-07  Store and reuse right-aligned part of original statusline
-"
-" 0.14 2010-01-28  Fixed bug that caused buftabs in command line being
-"                  overwritten when 'hidden' mode is enabled.
 " 
-" 0.15 2010-02-16  Fixed window width handling bug which caused strange
-"                  behaviour in combination with the bufferlist plugin.
-"									 Fixed wrong buffer display when deleting last window.
-"									 Added extra options for tabs style and highlighting.
-"
-"	0.16 2010-02-28  Fixed bug causing errors when using buftabs in vim
-"                  diff mode.
-"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let w:buftabs_enabled = 0
-let w:original_statusline = "%=" . &statusline
-
-"
-" Don't bother when in diff mode
-"
-
-if &diff                                      
-	finish
-endif     
-
 
 "
 " Called on VimEnter event
 "
 
+let s:buftabs_enabled = 0
+let w:original_statusline = matchstr(&statusline, "%=.*")
+
 function! Buftabs_enable()
-	let w:buftabs_enabled = 1
+	let s:buftabs_enabled = 1
 endfunction
-
-
-"
-" Persistent echo to avoid overwriting of status line when 'hidden' is enabled
-" 
-
-function! Pecho(msg)
-	let s:hold_ut=&ut|let &ut=1
-	let s:Pecho=a:msg
-	aug Pecho
-		au CursorHold * ec s:Pecho
-					\|let &ut=s:hold_ut
-					\|aug Pecho|exe 'au!'|aug END|aug! Pecho
-	aug END
-endf
 
 
 "
 " Draw the buftabs
 "
 
-function! Buftabs_show(deleted_buf)
+function! Buftabs_show()
 
 	let l:i = 1
 	let l:list = ''
 	let l:start = 0
 	let l:end = 0
-	if ! exists("w:from") 
-		let w:from = 0
+	if ! exists("s:from") 
+		let s:from = 0
 	endif
 
-	if ! exists("w:buftabs_enabled")
+	if s:buftabs_enabled != 1 
 		return
 	endif
 
@@ -188,7 +146,7 @@ function! Buftabs_show(deleted_buf)
 
 		" Only show buffers in the list, and omit help screens
 	
-		if buflisted(l:i) && getbufvar(l:i, "&modifiable") && a:deleted_buf != l:i
+		if buflisted(l:i) && getbufvar(l:i, "&modifiable") 
 
 			" Get the name of the current buffer, and escape characters that might
 			" mess up the statusline
@@ -212,12 +170,7 @@ function! Buftabs_show(deleted_buf)
 				let l:list = l:list . ' '
 			endif
 				
-      let l:buftabs_separator = "-"
-      if exists("g:buftabs_separator")
-        let l:buftabs_separator = g:buftabs_separator
-      endif
-
-			let l:list = l:list . l:i . l:buftabs_separator
+			let l:list = l:list . l:i . "-" 
 			let l:list = l:list . l:name
 
 			if getbufvar(l:i, "&modified") == 1
@@ -240,41 +193,25 @@ function! Buftabs_show(deleted_buf)
 
 	let l:width = winwidth(0) - 12
 
-	if(l:start < w:from) 
-		let w:from = l:start - 1
+	if(l:start < s:from) 
+		let s:from = l:start - 1
 	endif
-	if l:end > w:from + l:width
-		let w:from = l:end - l:width 
+	if l:end > s:from + l:width
+		let s:from = l:end - l:width 
 	endif
 		
-	let l:list = strpart(l:list, w:from, l:width)
+	let l:list = strpart(l:list, s:from, l:width)
 
 	" Replace the magic characters by visible markers for highlighting the
 	" current buffer. The markers can be simple characters like square brackets,
 	" but can also be special codes with highlight groups
 
 	let l:buftabs_marker_start = "["
-  if exists("g:buftabs_marker_start")
-    let l:buftabs_marker_start = g:buftabs_marker_start
-  endif
-
 	let l:buftabs_marker_end = "]"
-  if exists("g:buftabs_marker_end")
-    let l:buftabs_marker_end = g:buftabs_marker_end
-  endif
-  
 	if exists("g:buftabs_active_highlight_group")
 		if exists("g:buftabs_in_statusline")
 			let l:buftabs_marker_start = "%#" . g:buftabs_active_highlight_group . "#" . l:buftabs_marker_start
 			let l:buftabs_marker_end = l:buftabs_marker_end . "%##"
-		end
-	end
-
-	if exists("g:buftabs_inactive_highlight_group")
-		if exists("g:buftabs_in_statusline")
-			let l:list = '%#' . g:buftabs_inactive_highlight_group . '#' . l:list
-			let l:list .= '%##'
-			let l:buftabs_marker_end = l:buftabs_marker_end . '%#' . g:buftabs_inactive_highlight_group . '#'
 		end
 	end
 
@@ -286,10 +223,11 @@ function! Buftabs_show(deleted_buf)
 	" (persistent)
 
 	if exists("g:buftabs_in_statusline")
-		let &l:statusline = l:list . w:original_statusline
+    let g:buftabs_list = l:list
+    set statusline=\ %{g:buftabs_list}%=%l,%c\ [%n]\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
 	else
 		redraw
-		call Pecho(l:list)
+		echon l:list
 	end
 
 endfunction
@@ -299,11 +237,20 @@ endfunction
 " buffers
 
 autocmd VimEnter * call Buftabs_enable()
-autocmd VimEnter,BufNew,BufEnter,BufWritePost * call Buftabs_show(-1)
-autocmd BufDelete * call Buftabs_show(expand('<abuf>'))
+autocmd VimEnter,BufNew,BufEnter,BufWritePost * call Buftabs_show()
 if version >= 700
-	autocmd InsertLeave,VimResized * call Buftabs_show(-1)
+	autocmd InsertLeave,VimResized * call Buftabs_show()
 end
+
+function! GetStatusEx()
+let str = &fileformat
+    if has("multi_byte") && &fileencoding != ""
+        let str = &fileencoding . ":" . str
+    endif
+    let str = "[" . str . "]"
+    return str
+endfunction
+
 
 " vi: ts=2 sw=2
 
