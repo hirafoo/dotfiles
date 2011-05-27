@@ -115,25 +115,21 @@ filetype on
 filetype indent on
 filetype plugin on
 
-command! -bang -nargs=? Utf
-            \ edit<bang> ++enc=utf-8 <args>
-command! -bang -nargs=? Sjis
-            \ edit<bang> ++enc=sjis <args>
-command! -bang -nargs=? Euc
-            \ edit<bang> ++enc=euc-jp <args>
-command! -bang -nargs=? Iso
-            \ edit<bang> ++enc=iso-2022-jp <args>
-command! -bang -nargs=? Tmt
-            \ setfiletype tmt2html
-command! -bang -nargs=? Js
-            \ setfiletype javascript
-command! -bang -nargs=? Html
-            \ setfiletype html
+command! -bang -nargs=? Utf  edit<bang> ++enc=utf-8 <args>
+command! -bang -nargs=? Sjis edit<bang> ++enc=sjis <args>
+command! -bang -nargs=? Euc  edit<bang> ++enc=euc-jp <args>
+command! -bang -nargs=? Iso  edit<bang> ++enc=iso-2022-jp <args>
+command! -bang -nargs=? Tmt  setfiletype tmt2html
+command! -bang -nargs=? Js   setfiletype javascript
+command! -bang -nargs=? Html setfiletype html
 
 "行末のスペースを可視化
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 autocmd WinEnter * match WhitespaceEOL /\s\+$/
+
+"plugin
+nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
@@ -203,13 +199,6 @@ autocmd WinEnter * match WhitespaceEOL /\s\+$/
 "  endfunction
 "  autocmd BufReadPost * call AU_ReCheck_FENC()
 "endif
-
-
-let g:quickrun_config = {
-\ '*': {
-\ 'split': '{"rightbelow 10sp"}'
-\ }
-\}
 
 if filereadable( $HOME . "/.vimrc_after" )
   source ~/.vimrc_after
