@@ -3,12 +3,12 @@ noremap <c-j> gT
 noremap <c-e> gt
 noremap <c-w> gT
 noremap <c-a> <c-v><c-a>
-noremap j 5j
-noremap k 5k
-noremap l 5l
-noremap h 5h
-noremap w 5k
-noremap e 5j
+noremap j 10j
+noremap k 10k
+noremap l 10l
+noremap h 10h
+noremap w 10k
+noremap e 10j
 noremap U :undo<Space>
 noremap <silent> <c-l> <c-l>:noh<cR>
 inoremap <c-a> <c-v><c-a>
