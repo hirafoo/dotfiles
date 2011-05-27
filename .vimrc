@@ -204,6 +204,13 @@ autocmd WinEnter * match WhitespaceEOL /\s\+$/
 "  autocmd BufReadPost * call AU_ReCheck_FENC()
 "endif
 
+
+let g:quickrun_config = {
+\ '*': {
+\ 'split': '{"rightbelow 10sp"}'
+\ }
+\}
+
 if filereadable( $HOME . "/.vimrc_after" )
   source ~/.vimrc_after
 endif
