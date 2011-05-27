@@ -111,9 +111,7 @@ endfunction
 
 syntax on
 
-filetype on
-filetype indent on
-filetype plugin on
+filetype indent plugin on
 
 command! -bang -nargs=? Utf  edit<bang> ++enc=utf-8 <args>
 command! -bang -nargs=? Sjis edit<bang> ++enc=sjis <args>
@@ -130,6 +128,13 @@ autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
 "plugin
 nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
+
+let g:quickrun_config = {
+\ '*': {
+\ 'split': '{"rightbelow 10sp"}'
+\ }
+\}
+
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
