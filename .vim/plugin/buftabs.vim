@@ -224,7 +224,8 @@ function! Buftabs_show()
 
 	if exists("g:buftabs_in_statusline")
     let g:buftabs_list = l:list
-    set statusline=\ %{g:buftabs_list}%=%l,%c\ [%n]\ %y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
+    "set statusline=\ %{g:buftabs_list}%=%l,%c\ [%n]\ %y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
+    set statusline=\ %{g:buftabs_list}%=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
 	else
 		redraw
 		echon l:list
