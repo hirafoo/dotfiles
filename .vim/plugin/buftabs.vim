@@ -68,13 +68,6 @@
 "   :let g:buftabs_active_highlight_group="Visual"
 "
 "
-" Bugs
-" ----
-"
-" Vim's 'set hidden' option is known to break this plugin - for some reason
-" vim will overwrite the buftabs when this option is enabled. 
-"
-"
 " Changelog
 " ---------
 " 
@@ -107,6 +100,11 @@
 " 0.11 2008-02-29  Added optional syntax highlighting to active buffer name
 "
 " 0.12 2009-03-18  Fixed support for split windows
+"
+" 0.13 2009-05-07  Store and reuse right-aligned part of original statusline
+"
+" 0.14 2010-01-28  Fixed bug that caused buftabs in command line being
+"                  overwritten when 'hidden' mode is enabled.
 " 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -115,11 +113,27 @@
 "
 
 let s:buftabs_enabled = 0
-let w:original_statusline = matchstr(&statusline, "%=.*")
+let s:original_statusline = "%=" . &statusline
+"let s:original_statusline = matchstr(&statusline, "%=.*")
 
 function! Buftabs_enable()
 	let s:buftabs_enabled = 1
 endfunction
+
+
+"
+" Persistent echo to avoid overwriting of status line when 'hidden' is enabled
+" 
+
+function! Pecho(msg)
+	let s:hold_ut=&ut|let &ut=1
+	let s:Pecho=a:msg
+	aug Pecho
+		au CursorHold * ec s:Pecho
+					\|let &ut=s:hold_ut
+					\|aug Pecho|exe 'au!'|aug END|aug! Pecho
+	aug END
+endf
 
 
 "
@@ -223,12 +237,10 @@ function! Buftabs_show()
 	" (persistent)
 
 	if exists("g:buftabs_in_statusline")
-    let g:buftabs_list = l:list
-    "set statusline=\ %{g:buftabs_list}%=%l,%c\ [%n]\ %y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
-    set statusline=\ %{g:buftabs_list}%=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
+		let &l:statusline = l:list . s:original_statusline
 	else
 		redraw
-		echon l:list
+		call Pecho(l:list)
 	end
 
 endfunction
@@ -242,16 +254,6 @@ autocmd VimEnter,BufNew,BufEnter,BufWritePost * call Buftabs_show()
 if version >= 700
 	autocmd InsertLeave,VimResized * call Buftabs_show()
 end
-
-function! GetStatusEx()
-let str = &fileformat
-    if has("multi_byte") && &fileencoding != ""
-        let str = &fileencoding . ":" . str
-    endif
-    let str = "[" . str . "]"
-    return str
-endfunction
-
 
 " vi: ts=2 sw=2
 
