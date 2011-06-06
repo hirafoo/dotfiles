@@ -81,7 +81,7 @@ nmap <silent> <C-L> <C-L>:noh<CR>
 autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
 autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
-autocmd BufRead *.sql set filetype=mysql
+autocmd BufNewFile,BufRead *.sql set filetype=mysql
 autocmd InsertLeave *  silent! wall
 autocmd FileType perl set isfname-=-
 autocmd FileType perl set isfname-=/
