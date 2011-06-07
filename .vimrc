@@ -10,6 +10,7 @@ Bundle 'closetag.vim'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'quickrun.vim'
+Bundle 'Smooth-Scroll'
 
 set ambiwidth=double
 set tabstop=4
@@ -52,6 +53,7 @@ hi PmenuThumb ctermbg=2
 let g:closetag_html_style=1 " htmlモードとかで閉じタグをc--で自動挿入
 let loaded_matchparen = 1 "カッコをハイライトしない
 
+nnoremap BD :bd<CR>
 noremap <C-j> :bprev!<CR>
 noremap <C-k> :bnext!<CR>
 nnoremap Y y$
