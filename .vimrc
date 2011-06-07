@@ -4,7 +4,6 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
-Bundle 'AutoComplPop'
 Bundle 'bufferlist.vim'
 Bundle 'cecutil'
 Bundle 'closetag.vim'
