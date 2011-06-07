@@ -3,3 +3,4 @@
 MANIFEST.bak
 schema.rb
 .vimperator/info/
+.vim/bundle/*

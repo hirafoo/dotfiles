@@ -1,8 +1,17 @@
-if filereadable( $HOME . "/.vimrc_before" )
-  source ~/.vimrc_before
-endif
-
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+
+Bundle 'AutoComplPop'
+Bundle 'bufferlist.vim'
+Bundle 'cecutil'
+Bundle 'closetag.vim'
+Bundle 'FuzzyFinder'
+Bundle 'L9'
+Bundle 'quickrun.vim'
+
 set ambiwidth=double
 set tabstop=4
 set tenc=utf8
