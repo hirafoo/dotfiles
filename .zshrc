@@ -134,6 +134,8 @@ alias up='svn up'
 #if [ $SHLVL = 1 ];then
 #      screen -R
 #fi
+
+#functions
 gu () {
     branch=$1;
     if [ -z $branch ]; then
@@ -172,6 +174,7 @@ optime() {
 vm ()     { man $1 | col -b | vi -R - }
 jvm ()   { jman $1 | col -b | vi -R - }
 pm () { perldoc $1 | col -b | vi -R - }
+viack () { vi `ack -l $@` }
 
 # status bar
 #preexec () {
