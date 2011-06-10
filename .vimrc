@@ -54,6 +54,7 @@ let g:closetag_html_style=1 " htmlモードとかで閉じタグをc--で自動�
 let loaded_matchparen = 1 "カッコをハイライトしない
 
 nnoremap BD :bd<CR>
+nnoremap W :w<CR>
 noremap <C-j> :bprev!<CR>
 noremap <C-k> :bnext!<CR>
 nnoremap Y y$
