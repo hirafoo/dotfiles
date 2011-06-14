@@ -4,13 +4,13 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
-Bundle 'bufferlist.vim'
 Bundle 'cecutil'
 Bundle 'closetag.vim'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'quickrun.vim'
 Bundle 'Smooth-Scroll'
+Bundle 'QuickBuf'
 
 set ambiwidth=double
 set tabstop=4
@@ -45,6 +45,12 @@ let g:buftabs_only_basename=1
 "バッファタブをステータスライン内に表示する
 let g:buftabs_in_statusline=1
 
+"bufferlist.vim
+"map <silent> <C-o> :call BufferList()<CR>
+
+"QuickBuf.vim
+:let g:qb_hotkey = "<C-o>"
+
 hi Pmenu ctermbg=0
 hi PmenuSel ctermbg=1
 hi PmenuSbar ctermbg=3
@@ -62,7 +68,6 @@ nnoremap Y y$
 "nnoremap x "_x
 map <C-C> <Esc>
 
-map <silent> <C-o> :call BufferList()<CR>
 cmap qq q!
 
 "インサートモードで移動
