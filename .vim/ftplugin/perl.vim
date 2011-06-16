@@ -5,6 +5,11 @@
 " Bugs/requests: http://github.com/petdance/vim-perl/issues
 " Last Change:   2009-08-14
 
+inoremap PP use Data::Dumper;sub p {warn Dumper \@_;my @c = caller;print STDERR "  at $c[1]:$c[2]\n\n"}<CR>
+inoremap SS my ($self, ) = @_;<CR>
+set iskeyword+=:
+noremap K :Perldoc<CR>
+
 if exists("b:did_ftplugin") | finish | endif
 let b:did_ftplugin = 1
 
