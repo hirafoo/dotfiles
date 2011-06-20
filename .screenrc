@@ -3,12 +3,13 @@ encoding utf8 utf8
 bind 'U' eval "encoding utf8" "stuff 'export LANG=en_US.UTF-8\012'"
 bind 'E' eval "encoding euc"  "stuff 'export LANG=en_US.EUC-JP\012'"
 escape 
-termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 #termcapinfo xterm* 'Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 termcapinfo xterm-256color 'Co#256:pa#256:AF=\E[38;5;%dm:AB=\E[48;5;%dm:tc=xterm-color:'
 attrcolor b ".I"
 defbce "on"
 startup_message off
+altscreen on
 hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 vbell off
 bufferfile /tmp/screen_copybuff
