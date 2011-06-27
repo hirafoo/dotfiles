@@ -9,7 +9,7 @@ Bundle 'closetag.vim'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'quickrun.vim'
-Bundle 'Smooth-Scroll'
+"Bundle 'Smooth-Scroll'
 Bundle 'QuickBuf'
 
 set ambiwidth=double
