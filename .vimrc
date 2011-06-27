@@ -11,6 +11,7 @@ Bundle 'L9'
 Bundle 'quickrun.vim'
 "Bundle 'Smooth-Scroll'
 Bundle 'QuickBuf'
+Bundle 'HTML5-Syntax-File'
 
 set ambiwidth=double
 set tabstop=4
