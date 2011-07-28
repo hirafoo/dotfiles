@@ -44,6 +44,9 @@ qmark y http://www.yahoo.co.jp/
 
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
+set hintchars=qwerasdfzxcv
+highlight Hint color:white; background-color:red; padding:1px; text-transform: lowwercase;
+
 "autocmd LocationChange .* js modes.passAllKeys = false
 "autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
 
@@ -61,8 +64,8 @@ let g:def_sbms = "h"
 hi Message  padding-left: 0;
 
 "char-hints-mod2.js -r33247
-let g:hintsio="io"
-let g:hintchars="qwerasdfzxcv"
+"let g:hintsio="io"
+"let g:hintchars="qwerasdfzxcv"
 
 "forcefocuscontent.js
 
