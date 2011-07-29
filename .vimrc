@@ -13,7 +13,7 @@ Bundle 'quickrun.vim'
 Bundle 'QuickBuf'
 Bundle 'HTML5-Syntax-File'
 
-set cursorline
+"set cursorline
 set ambiwidth=double
 set tabstop=4
 set tenc=utf8
