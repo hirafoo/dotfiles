@@ -33,6 +33,8 @@ setopt extended_history     # 履歴ファイルに時刻を記録
 setopt hist_ignore_all_dups # 既にヒストリにあるコマンド行は古い方を削除
 setopt hist_reduce_blanks   # コマンドラインの余計なスペースを排除
 setopt magic_equal_subst    # --prefix=/usr などの = 以降でも補完できる
+setopt noautoremoveslash
+
 WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
 unsetopt promptcr # 改行の無い出力を表示する
@@ -86,7 +88,7 @@ SAVEHIST=10000
 alias gb='git br'
 alias gl='git di'
 alias gn='git remote -v'
-alias gi='git ci'
+alias gi='git commit'
 alias go='git co'
 alias gp='git push'
 alias gt='git st'
