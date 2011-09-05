@@ -33,11 +33,12 @@ setopt extended_history     # 履歴ファイルに時刻を記録
 setopt hist_ignore_all_dups # 既にヒストリにあるコマンド行は古い方を削除
 setopt hist_reduce_blanks   # コマンドラインの余計なスペースを排除
 setopt magic_equal_subst    # --prefix=/usr などの = 以降でも補完できる
-setopt noautoremoveslash
+setopt prompt_subst         # PROMPT内で変数展開・コマンド置換・算術演算を実行する
+setopt prompt_percent       # PROMPT内で「%」文字から始まる置換機能を有効にする
+setopt transient_rprompt    # コピペしやすいようにコマンド実行後は右プロンプトを消す
+unsetopt promptcr           # 改行の無い出力を表示する
 
 WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
-
-unsetopt promptcr # 改行の無い出力を表示する
 
 # CVS ディレクトリへのcdを抑制
 # http://www.cuspy.org/wiki/zsh-lovers
