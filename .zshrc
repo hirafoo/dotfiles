@@ -50,6 +50,8 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' use-cache true
 # 高速化らしい
 zstyle ':completion:*' accept-exact '*(N)'
+# 補完で大文字・小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 #export LANG=ja_JP.UTF-8
 export LANG=en_US.UTF-8
