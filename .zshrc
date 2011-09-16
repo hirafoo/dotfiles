@@ -68,11 +68,11 @@ bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
-#PROMPT='[%n@%m]%# '
-#RPROMPT='[%~]'
-PROMPT="[%B%~${default}%b] %E
-%b%# "
-#RPROMPT="[%n@%M]"
+##PROMPT='[%n@%m]%# '
+##RPROMPT='[%~]'
+#PROMPT="[%B%~${default}%b] %E
+#%b%# "
+##RPROMPT="[%n@%M]"
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '[%b]'
@@ -83,6 +83,31 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 RPROMPT="%1(v|%F{green}%1v%f|) [%n@%M]"
+
+prompt_bar_left="[%B%~${default}%b] %E"
+prompt_bar_right=\(`date +'%Y/%m/%d %H:%M:%S'`\)
+prompt_left="%# "
+
+count_prompt_characters()
+{
+    print -n -P -- "$1" | sed -e $'s/\e\[[0-9;]*m//g' | wc -m | sed -e 's/ //g'
+}
+
+update_prompt()
+{
+    local bar_left_length=$(count_prompt_characters "$prompt_bar_left")
+    local bar_rest_length=$[COLUMNS - bar_left_length + 2]
+    local bar_left="$prompt_bar_left"
+    local bar_right_without_path="${prompt_bar_right:s/%d//}"
+    local bar_right_without_path_length=$(count_prompt_characters "$bar_right_without_path")
+    local max_path_length=$[bar_rest_length - bar_right_without_path_length]
+    bar_right=${prompt_bar_right:s/%d/%(C,%${max_path_length}<...<%d%<<,)/}
+    local separator="${(l:${bar_rest_length}:: :)}"
+    bar_right="%${bar_rest_length}<<${separator}${bar_right}%<<"
+    PROMPT="${bar_left}${bar_right}"$'\n'"${prompt_left}"
+}
+
+precmd_functions=($precmd_functions update_prompt)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
