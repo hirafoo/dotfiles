@@ -62,7 +62,7 @@ export EDITOR=vim
 #export PAGER='less -S -# 5'
 export LESS="-R"
 export DBIC_NO_WARN_BAD_PERL=1
-export MYSQL_PS1="[\R:\m:\s] (\U:\d)\nmysql> "
+#export MYSQL_PS1="[\R:\m:\s] (\U:\d)\nmysql> "
 
 bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
@@ -133,6 +133,7 @@ alias ja="export LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en"
 alias en="export LANG=en_US.UTF-8 LANGUAGE=en_US:en:en_GB:en"
 alias jman='LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en /usr/bin/man'
 alias man='LANG=C man'
+alias path='perl -MFile::Spec -le '"'"'print File::Spec->rel2abs($_) for @ARGV'"'"
 alias perldoc='perldoc -t'
 alias pv='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "$module ", ${"$module\::VERSION"} }'"'"
 alias rb=ruby
