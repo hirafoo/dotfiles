@@ -226,6 +226,10 @@ esac
 
 PATH=~/bin:~/localbin:/sbin:/usr/sbin:/usr/local/bin:/var/lib/gems/1.8/bin:$PATH
 
+if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
+    source $HOME/perl5/perlbrew/etc/bashrc
+fi
+
 if [ -e ~/.zshrc_after ]; then
     source ~/.zshrc_after
 fi
