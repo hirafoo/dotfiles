@@ -62,7 +62,7 @@ export EDITOR=vim
 #export PAGER='less -S -# 5'
 export LESS="-R"
 export DBIC_NO_WARN_BAD_PERL=1
-export MYSQL_PS1="[\R:\m:\s] (\U:\d)\nmysql> "
+#export MYSQL_PS1="[\R:\m:\s] (\U:\d)\nmysql> "
 
 bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
@@ -197,7 +197,7 @@ vir () {
 cdr () { cd `gem which $1 | perl -pe 's/[^\/]+\.\w+$//'` }
 fin () { find . -name $1 V svn }
 history-all () { history -E 1 }
-chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
+#chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
 optime() {
     cat /proc/uptime | awk '{print $1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
 } # or use uptime(only BSD?)
@@ -205,6 +205,17 @@ vm ()     { man $1 | col -b | vi -R - }
 jvm ()   { jman $1 | col -b | vi -R - }
 pm () { perldoc $1 | col -b | vi -R - }
 viack () { vi `ack -l $@` }
+path () {
+    dir=$(builtin cd $(dirname $0);pwd);
+    file=$(basename $1);
+    echo "$dir/$file";
+}
+cd () {
+    clear;
+    echo \[`pwd`\];
+    builtin cd $1;
+    ls -l;
+}
 
 # status bar
 #preexec () {
