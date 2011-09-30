@@ -140,6 +140,7 @@ alias rb=ruby
 alias sc=screen
 alias sls="screen -ls"
 alias sr="screen -r"
+alias static_httpd='plackup -MPlack::App::Directory -e '"'"'Plack::App::Directory->new({root=>"."})->to_app'"'"
 alias sx="screen -x"
 alias w3m='w3m -no-mouse'
 alias vi=vim
