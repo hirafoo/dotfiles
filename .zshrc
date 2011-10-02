@@ -123,9 +123,9 @@ alias gt='git st'
 alias l=clear
 alias la='ls -A'
 alias le=less
-alias ll='ls -l'
-alias lla='ls -lA'
-alias lld='ls -ld'
+alias ll='ls -hl'
+alias lla='ls -hlA'
+alias lld='ls -hld'
 alias ls='ls --color=tty'
 alias m=more
 #alias mysql="mysql --pager='less -S -# 5'"
@@ -199,7 +199,7 @@ vir () {
 cdr () { cd `gem which $1 | perl -pe 's/[^\/]+\.\w+$//'` }
 fin () { find . -name $1 V svn }
 history-all () { history -E 1 }
-chpwd() { clear;echo \[`pwd`\];ls -l --color=tty }
+chpwd() { clear;echo \[`pwd`\];ls -hl --color=tty }
 optime() {
     cat /proc/uptime | awk '{print $1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
 } # or use uptime(only BSD?)
