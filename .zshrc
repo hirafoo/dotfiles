@@ -207,6 +207,18 @@ vm ()     { man $1 | col -b | vi -R - }
 jvm ()   { jman $1 | col -b | vi -R - }
 pm () { perldoc $1 | col -b | vi -R - }
 viack () { vi `ack -l $@` }
+uri_escape () {
+    for i in $@
+    do
+        echo $i | perl -MURI::Escape -nle 'print uri_escape($_)'
+    done
+}
+uri_unescape () {
+    for i in $@
+    do
+        echo $i | perl -MURI::Escape -nle 'print uri_unescape($_)'
+    done
+}
 
 # status bar
 #preexec () {
