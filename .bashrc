@@ -4,8 +4,10 @@ fi
 
 alias ..='cd ..'
 alias l=clear
-alias ls='ls --color -G'
+alias ls='ls --color'
+alias la='ls -a'
 alias ll='ls -l'
+alias lla='ls -la'
 
 L1='\[\e[$[COLUMNS-$(echo -n " [\u@\H]" | wc -c)]C\e[m[\u@\H]\e[\e[$[COLUMNS]D\]'
 PS1="${L1}[\w]\n$ "
