@@ -42,6 +42,8 @@ qmark t http://twitter.com/login
 qmark x http://mixi.jp/
 qmark y http://www.yahoo.co.jp/
 
+javascript liberator.beep = function() true
+
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
 set hintchars=qwerasdfzxcv
