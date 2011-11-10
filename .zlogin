@@ -2,3 +2,5 @@
 #source ~/.keychain/$HOST-sh
 
 #script /dev/null
+
+unset autologout
