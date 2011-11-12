@@ -168,6 +168,10 @@ alias up='svn up'
 #fi
 
 #functions
+ee () {
+    uc=`echo $1 | tr "a-z" "A-Z"`
+    eval echo \$$uc
+}
 gu () {
     branch=$1;
     if [ -z $branch ]; then
