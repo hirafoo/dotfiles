@@ -11,6 +11,8 @@ stty stop undef
 autoload -U compinit     # 補完機能の強化
 compinit -u
 
+unset autologout
+
 #zmv
 autoload -Uz zmv
 
