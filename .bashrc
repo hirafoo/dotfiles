@@ -9,7 +9,7 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
 
-L1='\[\e[$[COLUMNS-$(echo -n " [\u@\H]" | wc -c)]C\e[m[\u@\H]\e[\e[$[COLUMNS]D\]'
+L1='\[\e[$[COLUMNS-$(echo -n "(\D{%Y/%m/%d %H:%M:%S}) [\u@\H]" | wc -c)]C\e[m(\D{%Y/%m/%d %H:%M:%S}) [\u@\H]\e[\e[$[COLUMNS]D\]'
 PS1="${L1}[\w]\n$ "
 
 function cd () {
