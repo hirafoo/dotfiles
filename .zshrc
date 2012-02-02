@@ -127,6 +127,7 @@ alias gt='git st'
 alias l=clear
 alias la='ls -A'
 alias le=less
+alias li='ifconfig eth0 |grep inet|cut -d ":" -f 2|cut -d " " -f 1'
 alias ll='ls -hl'
 alias lla='ls -hlA'
 alias lld='ls -hld'
