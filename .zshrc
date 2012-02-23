@@ -115,13 +115,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-alias gb='git br'
-alias gl='git di'
-alias gn='git remote -v'
-alias gi='git ci'
-alias go='git co'
-alias gp='git push'
-alias gt='git st'
+alias info="info --vi-keys"
 alias l=clear
 alias la='ls -A'
 alias le=less
@@ -157,6 +151,14 @@ alias -g U='| uniq'
 alias -g V='| grep -v'
 alias -g W='| wc'
 alias -g X='| xargs grep'
+
+alias gb='git br'
+alias gl='git di'
+alias gn='git remote -v'
+alias gi='git ci'
+alias go='git co'
+alias gp='git push'
+alias gt='git st'
 
 alias si='svn ci'
 alias sl='svn diff | colordiff | less'
