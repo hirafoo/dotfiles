@@ -66,6 +66,8 @@ export LESS="-R"
 export DBIC_NO_WARN_BAD_PERL=1
 #export MYSQL_PS1="[\R:\m:\s] (\U:\d)\nmysql> "
 
+export MANPATH=/usr/local/git/share/man:$MANPATH
+
 bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
@@ -119,6 +121,7 @@ alias info="info --vi-keys"
 alias l=clear
 alias la='ls -A'
 alias le=less
+alias li='ifconfig eth0 |grep inet|cut -d ":" -f 2|cut -d " " -f 1'
 alias ll='ls -hl'
 alias lla='ls -hlA'
 alias lld='ls -hld'

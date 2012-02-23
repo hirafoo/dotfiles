@@ -100,6 +100,7 @@ autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
 autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
 autocmd BufNewFile,BufRead *.sql set filetype=mysql
+"insertを抜けたら保存
 autocmd InsertLeave *  silent! wall
 autocmd FileType perl set isfname-=-
 autocmd FileType perl set isfname-=/
