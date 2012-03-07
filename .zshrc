@@ -1,9 +1,14 @@
-if [ -e ~/.zshrc_local ]; then
-    source ~/.zshrc_local
-fi
-if [ -e ~/.zshrc_before ]; then
-    source ~/.zshrc_before
-fi
+load_if_exists () {
+    if [ -e $1 ]; then
+        #echo "load: $1"
+        source $1
+    #else
+        #echo "no: $1"
+    fi
+}
+
+load_if_exists "$HOME/.zshrc_local"
+load_if_exists "$HOME/.zshrc_before"
 
 stty stop undef
 
@@ -251,10 +256,6 @@ esac
 
 PATH=~/bin:~/localbin:/sbin:/usr/sbin:/usr/local/bin:/var/lib/gems/1.8/bin:$PATH
 
-if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
-    source $HOME/perl5/perlbrew/etc/bashrc
-fi
-
-if [ -e ~/.zshrc_after ]; then
-    source ~/.zshrc_after
-fi
+load_if_exists "$HOME/perl5/perlbrew/etc/bashrc"
+load_if_exists "$HOME/.zshrc_after"
+load_if_exists "$HOME/.opt/autojump_v12/autojump.zsh"
