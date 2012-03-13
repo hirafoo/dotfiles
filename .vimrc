@@ -140,6 +140,8 @@ command! -bang -nargs=? Utf  edit<bang> ++enc=utf-8 <args>
 command! -bang -nargs=? Sjis edit<bang> ++enc=sjis <args>
 command! -bang -nargs=? Euc  edit<bang> ++enc=euc-jp <args>
 command! -bang -nargs=? Iso  edit<bang> ++enc=iso-2022-jp <args>
+command! -bang -nargs=? Unix set fileformat=unix
+command! -bang -nargs=? Dos  set fileformat=dos
 command! -bang -nargs=? Tmt  setfiletype tmt2html
 command! -bang -nargs=? Js   setfiletype javascript
 command! -bang -nargs=? Html setfiletype html
