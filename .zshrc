@@ -235,6 +235,16 @@ uri_unescape () {
         echo $i | perl -MURI::Escape -nle 'print uri_unescape($_)'
     done
 }
+split_param () {
+    echo $1 | perl -MCGI -nle '
+        my $q = CGI->new($_);
+        for my $r ($q->param) {
+            my $v = $q->param($r);
+            $r =~ s{^http://.+\?}{};
+            print "$r => $v";
+        }
+    '
+}
 
 # status bar
 #preexec () {
