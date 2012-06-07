@@ -38,6 +38,7 @@ set helplang=ja,en
 set fileformats=unix,dos,mac
 set nofoldenable "折り畳みがうざい
 set hidden
+set directory=~/.vim/tmp
 
 "dicwin memo
 "c-d k
