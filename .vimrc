@@ -101,7 +101,7 @@ nmap <silent> <C-L> <C-L>:noh<CR>
 "vnoremap ' "zdi'<C-R>z'<ESC>
 
 autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
-autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pm
+autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
 autocmd BufNewFile,BufRead *.sql set filetype=mysql
 "insertを抜けたら保存
