@@ -10,11 +10,8 @@ Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'quickrun.vim'
 "Bundle 'Smooth-Scroll'
-"Bundle 'QuickBuf'
-Bundle 'unite.vim'
+Bundle 'QuickBuf'
 Bundle 'HTML5-Syntax-File'
-
-noremap <C-o> :Unite buffer<CR>
 
 "set cursorline
 set ambiwidth=double
@@ -55,7 +52,7 @@ let g:buftabs_in_statusline=1
 "map <silent> <C-o> :call BufferList()<CR>
 
 "QuickBuf.vim
-":let g:qb_hotkey = "<C-o>"
+:let g:qb_hotkey = "<C-o>"
 
 hi Pmenu ctermbg=0
 hi PmenuSel ctermbg=1
