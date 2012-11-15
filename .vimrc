@@ -12,6 +12,8 @@ Bundle 'quickrun.vim'
 "Bundle 'Smooth-Scroll'
 Bundle 'QuickBuf'
 Bundle 'HTML5-Syntax-File'
+Bundle 'IndentAnything'
+Bundle 'Javascript-Indentation'
 
 "set cursorline
 set ambiwidth=double
