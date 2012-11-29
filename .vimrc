@@ -14,6 +14,7 @@ Bundle 'IndentAnything'
 Bundle 'Javascript-Indentation'
 Bundle 'hotchpotch/perldoc-vim'
 Bundle 'vim-perl/vim-perl'
+Bundle 'koron/dicwin-vim'
 
 "set cursorline
 set ambiwidth=double
@@ -38,10 +39,11 @@ set fileformats=unix,dos,mac
 set nofoldenable "折り畳みがうざい
 set hidden
 
-"dicwin memo
+"dicwin
 "c-d k
 "c-d n/p
 "c-d w/c//
+let g:mapleader = "\<C-t>"
 
 " buftabs.vim
 "バッファタブにパスを省略してファイル名のみ表示する
