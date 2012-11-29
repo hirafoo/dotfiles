@@ -8,12 +8,12 @@ Bundle 'cecutil'
 Bundle 'closetag.vim'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
-Bundle 'quickrun.vim'
-"Bundle 'Smooth-Scroll'
 Bundle 'QuickBuf'
 Bundle 'HTML5-Syntax-File'
 Bundle 'IndentAnything'
 Bundle 'Javascript-Indentation'
+Bundle 'hotchpotch/perldoc-vim'
+Bundle 'vim-perl/vim-perl'
 
 "set cursorline
 set ambiwidth=double
