@@ -15,6 +15,7 @@ Bundle 'Javascript-Indentation'
 Bundle 'hotchpotch/perldoc-vim'
 Bundle 'vim-perl/vim-perl'
 Bundle 'koron/dicwin-vim'
+Bundle 'AutoComplPop'
 
 "set cursorline
 set ambiwidth=double
@@ -36,45 +37,49 @@ set statusline=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
 set backspace=indent,eol,start
 set helplang=ja,en
 set fileformats=unix,dos,mac
-set nofoldenable "折り畳みがうざい
+set nofoldenable "折り畳み無効
 set hidden
 
-"dicwin
-"c-d k
-"c-d n/p
-"c-d w/c//
+"dicwin.vim memo
+"c-t k
+"c-t n/p
+"c-t w/c//
 let g:mapleader = "\<C-t>"
 
-" buftabs.vim
+"buftabs.vim
 "バッファタブにパスを省略してファイル名のみ表示する
 let g:buftabs_only_basename=1
 "バッファタブをステータスライン内に表示する
 let g:buftabs_in_statusline=1
 
-"bufferlist.vim
-"map <silent> <C-o> :call BufferList()<CR>
-
 "QuickBuf.vim
-:let g:qb_hotkey = "<C-o>"
+let g:qb_hotkey = "<C-o>"
 
-hi Pmenu ctermbg=0
-hi PmenuSel ctermbg=1
-hi PmenuSbar ctermbg=3
+"FuzzyFinder
+nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
+
+hi Pmenu      ctermbg=0
+hi PmenuSel   ctermbg=1
+hi PmenuSbar  ctermbg=3
 hi PmenuThumb ctermbg=2
 
-let g:closetag_html_style=1 " htmlモードとかで閉じタグをc--で自動挿入
-let loaded_matchparen = 1 "カッコをハイライトしない
+" htmlモードとかで閉じタグをc--で自動挿入
+let g:closetag_html_style=1
+"カッコをハイライトしない
+let loaded_matchparen=1
 
 nnoremap BD :bd<CR>
 nnoremap W :w<CR>
+nnoremap Y y$
 noremap <C-j> :bprev!<CR>
 noremap <C-k> :bnext!<CR>
-nnoremap Y y$
+
 "xで削除した文字をレジスタに入れない
 "nnoremap x "_x
-map <C-C> <Esc>
 
+map <C-C> <Esc>
 cmap qq q!
+nmap <silent> <C-L> <C-L>:noh<CR>
 
 "インサートモードで移動
 noremap! <C-h> <Left>
@@ -83,10 +88,10 @@ noremap! <C-k> <Up>
 noremap! <C-j> <Down>
 noremap! <C-a> <Home>
 noremap! <C-e> <End>
+
 inoremap <silent> <expr> <C-e>  (pumvisible() ? "\<C-e>" : "\<End>")
-inoremap <expr> <CR> pumvisible() ? "\<C-Y>\<CR>" : "\<CR>"
+" inoremap <expr> <CR> pumvisible() ? "\<C-Y>\<CR>" : "\<CR>"
 noremap! <C-d> <Del>
-nmap <silent> <C-L> <C-L>:noh<CR>
 
 "括弧を打ったら自動で閉じる
 "inoremap { {}<LEFT>
@@ -102,10 +107,11 @@ nmap <silent> <C-L> <C-L>:noh<CR>
 
 autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pl
-autocmd BufNewFile  *.t       0r ~/.vim/template/perl_test.t
 autocmd BufNewFile,BufRead *.sql set filetype=mysql
+
 "insertを抜けたら保存
 autocmd InsertLeave *  silent! wall
+
 autocmd FileType perl set isfname-=-
 autocmd FileType perl set isfname-=/
 
@@ -113,6 +119,7 @@ au Filetype html,xml,xsl,ant source ~/.vim/bundle/closetag.vim/plugin/closetag.v
 au FileType sql  set timeoutlen=0
 
 augroup filetypedetect
+au! BufRead,BufNewFile *.inc    setfiletype html
 au! BufRead,BufNewFile *.tt     setfiletype html
 au! BufRead,BufNewFile *.xhtml  setfiletype html
 au! BufRead,BufNewFile *.erb    setfiletype ruby
@@ -121,7 +128,6 @@ au! BufRead,BufNewFile *.t      setfiletype perl
 au! BufRead,BufNewFile *.cgi    setfiletype perl
 au! BufRead,BufNewFile *.psgi   setfiletype perl
 au! BufRead,BufNewFile *.conf   setfiletype conf
-au! BufRead,BufNewFile *.mt     setfiletype tmt2html
 augroup END
 
 function! GetStatusEx()
@@ -143,7 +149,6 @@ command! -bang -nargs=? Euc  edit<bang> ++enc=euc-jp <args>
 command! -bang -nargs=? Iso  edit<bang> ++enc=iso-2022-jp <args>
 command! -bang -nargs=? Unix set fileformat=unix
 command! -bang -nargs=? Dos  set fileformat=dos
-command! -bang -nargs=? Tmt  setfiletype tmt2html
 command! -bang -nargs=? Js   setfiletype javascript
 command! -bang -nargs=? Html setfiletype html
 
@@ -152,15 +157,26 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
-"plugin
-nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
 
-let g:quickrun_config = {
-\ '*': {
-\ 'split': '{"rightbelow 10sp"}'
-\ }
-\}
-
+"<TAB>で補完
+" {{{ Autocompletion using the TAB key
+" This function determines, wether we are on the start of the line text (then tab indents) or
+" if we want to try autocompletion
+function! InsertTabWrapper()
+        let col = col('.') - 1
+        if !col || getline('.')[col - 1] !~ '\k'
+                return "\<TAB>"
+        else
+                if pumvisible()
+                        return "\<C-N>"
+                else
+                        return "\<C-N>\<C-P>"
+                end
+        endif
+endfunction
+" Remap the tab key to select action with InsertTabWrapper
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" }}} Autocompletion using the TAB key
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
