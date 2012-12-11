@@ -17,6 +17,9 @@ Bundle 'vim-perl/vim-perl'
 Bundle 'koron/dicwin-vim'
 Bundle 'AutoComplPop'
 
+syntax on
+filetype indent plugin on
+
 "set cursorline
 set ambiwidth=double
 set tabstop=4
@@ -90,7 +93,7 @@ noremap! <C-a> <Home>
 noremap! <C-e> <End>
 
 inoremap <silent> <expr> <C-e>  (pumvisible() ? "\<C-e>" : "\<End>")
-" inoremap <expr> <CR> pumvisible() ? "\<C-Y>\<CR>" : "\<CR>"
+
 noremap! <C-d> <Del>
 
 "括弧を打ったら自動で閉じる
@@ -139,10 +142,6 @@ let str = &fileformat
     return str
 endfunction
 
-syntax on
-
-filetype indent plugin on
-
 command! -bang -nargs=? Utf  edit<bang> ++enc=utf-8 <args>
 command! -bang -nargs=? Sjis edit<bang> ++enc=sjis <args>
 command! -bang -nargs=? Euc  edit<bang> ++enc=euc-jp <args>
@@ -157,8 +156,7 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
-
-"<TAB>で補完
+"acp.vim で <TAB>で補完
 " {{{ Autocompletion using the TAB key
 " This function determines, wether we are on the start of the line text (then tab indents) or
 " if we want to try autocompletion
@@ -177,6 +175,13 @@ endfunction
 " Remap the tab key to select action with InsertTabWrapper
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 " }}} Autocompletion using the TAB key
+
+"acp.vim を ,t で有効・無効
+inoremap <expr> ,t
+    \ (exists('#AcpGlobalAutoCommand#InsertEnter#*')) ? "<C-o>:AutoComplPopDisable<CR>" : "<C-o>:AutoComplPopEnable<CR>"
+
+"acp.vim で候補選択後の改行の動作
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
