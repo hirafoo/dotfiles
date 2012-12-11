@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#curl -L http://cpanmin.us/ | perl - App::cpanminus
-
 modules="
 Math::BigInt::GMP
 
@@ -64,6 +62,8 @@ XML::Parser
 XML::Parser::Expat
 XMLRPC::Lite
 YAML::XS
+Module::Install::Repository
+Module::Install::AuthorTests
 "
 
 for module in $modules
