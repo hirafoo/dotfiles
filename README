@@ -1,8 +1,6 @@
-curl -kL http://cpanmin.us/ | perl - App::cpanminus
+- etc
 
-eval $(/usr/local/bin/perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
-export PERL_CPANM_OPT="--local-lib=~/perl5"
-export PATH=/home/USER/perl5/bin:$PATH
+yum install perl-Term-ReadLine-Gnu
 
 # vim configure
 ./configure --prefix=/usr/local/vim --enable-multibyte --enable-rubyinterp --enable-gpm --enable-cscope --with-features=huge --enable-fontset --disable-gui --without-x --disable-xim --enable-pythoninterp --enable-perlinterp
