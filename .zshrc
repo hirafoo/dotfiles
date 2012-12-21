@@ -22,8 +22,9 @@ unset autologout
 autoload -Uz zmv
 
 #url auto quote
-autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
+#zsh-syntax-highlighting がうまく動かなくなる
+#autoload -U url-quote-magic
+#zle -N self-insert url-quote-magic
 
 setopt auto_menu            # TAB で順に補完候補を切り替える
 setopt auto_pushd           # 自動でpushd
