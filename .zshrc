@@ -271,3 +271,4 @@ PATH=~/bin:~/localbin:/sbin:/usr/sbin:/usr/local/bin:/var/lib/gems/1.8/bin:$PATH
 load_if_exists "$HOME/perl5/perlbrew/etc/bashrc"
 load_if_exists "$HOME/.zshrc_after"
 load_if_exists "$HOME/.opt/autojump_v12/autojump.zsh"
+load_if_exists "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
