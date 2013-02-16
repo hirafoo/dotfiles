@@ -23,6 +23,9 @@ name = hirafoo
 [core]
 excludesfile = /home/hirafoo/.gitignore
 
+[log]
+date = iso
+
 [push]
 default = current
 
