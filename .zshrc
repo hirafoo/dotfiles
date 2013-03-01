@@ -123,6 +123,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+alias ag="ag --pager 'less -R'"
 alias info="info --vi-keys"
 alias l=clear
 alias la='ls -A'
