@@ -226,7 +226,9 @@ optime() {
 vm ()     { man $1 | col -b | vi -R - }
 jvm ()   { jman $1 | col -b | vi -R - }
 pm () { perldoc $1 | col -b | vi -R - }
-viack () { vi `ack -l $@` }
+viack() { vi `ack -l $@` }
+vieack() { vim -u ~/.vimrc_euc `ack -l $@` }
+viag() { vim `ag -l $@` }
 uri_escape () {
     for i in $@
     do
