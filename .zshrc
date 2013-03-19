@@ -270,7 +270,7 @@ screen*)
 ;;
 esac
 
-PATH=~/bin:~/localbin:/sbin:/usr/sbin:/usr/local/bin:/var/lib/gems/1.8/bin:$PATH
+PATH=~/bin:/sbin:/usr/sbin:/usr/local/bin:/var/lib/gems/1.8/bin:$PATH
 
 load_if_exists "$HOME/perl5/perlbrew/etc/bashrc"
 load_if_exists "$HOME/.zshrc_after"
