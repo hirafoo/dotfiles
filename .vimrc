@@ -43,23 +43,8 @@ set fileformats=unix,dos,mac
 set nofoldenable "折り畳み無効
 set hidden
 
-"dicwin.vim memo
-"c-t k
-"c-t n/p
-"c-t w/c//
-let g:mapleader = "\<C-t>"
-
-"buftabs.vim
-"バッファタブにパスを省略してファイル名のみ表示する
-let g:buftabs_only_basename=1
-"バッファタブをステータスライン内に表示する
-let g:buftabs_in_statusline=1
-
-"QuickBuf.vim
-let g:qb_hotkey = "<C-o>"
-
-"FuzzyFinder
-nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue
+match ZenkakuSpace /　/
 
 hi Pmenu      ctermbg=0
 hi PmenuSel   ctermbg=1
@@ -156,7 +141,10 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
-"acp.vim で <TAB>で補完
+"""""""""""""""""""""""""""""""""plugin"""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""acp.vim
+"<TAB>で補完
 " {{{ Autocompletion using the TAB key
 " This function determines, wether we are on the start of the line text (then tab indents) or
 " if we want to try autocompletion
@@ -176,12 +164,39 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 " }}} Autocompletion using the TAB key
 
-"acp.vim を ,t で有効・無効
+",t で有効・無効
 inoremap <expr> ,t
     \ (exists('#AcpGlobalAutoCommand#InsertEnter#*')) ? "<C-o>:AutoComplPopDisable<CR>" : "<C-o>:AutoComplPopEnable<CR>"
 
-"acp.vim で候補選択後の改行の動作
+"候補選択後の改行の動作
 inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+""""""""""""""""""""""""/acp.vim
+
+""""""""""""""""""""""""dicwin.vim
+"memo
+"c-t k
+"c-t n/p
+"c-t w/c//
+
+"発動キー
+let g:mapleader = "\<C-t>"
+""""""""""""""""""""""""/dicwin.vim
+
+""""""""""""""""""""""""buftabs.vim
+"バッファタブにパスを省略してファイル名のみ表示する
+let g:buftabs_only_basename=1
+"バッファタブをステータスライン内に表示する
+let g:buftabs_in_statusline=1
+""""""""""""""""""""""""/buftabs.vim
+
+""""""""""""""""""""""""QuickBuf.vim
+let g:qb_hotkey = "<C-o>"
+""""""""""""""""""""""""/QuickBuf.vim
+
+""""""""""""""""""""""""FuzzyFinder
+nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
+""""""""""""""""""""""""/FuzzyFinder
+
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
