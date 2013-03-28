@@ -12,10 +12,12 @@ Bundle 'QuickBuf'
 Bundle 'HTML5-Syntax-File'
 Bundle 'IndentAnything'
 Bundle 'Javascript-Indentation'
+Bundle 'Align'
 Bundle 'hotchpotch/perldoc-vim'
 Bundle 'vim-perl/vim-perl'
 Bundle 'koron/dicwin-vim'
 Bundle 'AutoComplPop'
+Bundle 'ack.vim'
 
 syntax on
 filetype indent plugin on
@@ -197,6 +199,9 @@ let g:qb_hotkey = "<C-o>"
 nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
 """"""""""""""""""""""""/FuzzyFinder
 
+""""""""""""""""""""""""Align
+"矩形選択して Align =>
+""""""""""""""""""""""""/Align
 
 "";に続けて打つと大文字に
 "let s:sticky_table = {
