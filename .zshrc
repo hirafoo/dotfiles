@@ -152,6 +152,7 @@ alias w3m='w3m -no-mouse'
 alias vi=vim
 alias vie="vim -u ~/.vimrc_euc"
 alias ymd="date +%Y%m%d"
+alias hms='date +%H%M%S'
 alias zmv='noglob zmv -W'
 alias -g G='| grep'
 alias -g H='| head'
