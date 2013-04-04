@@ -1,0 +1,10 @@
+--- /usr/local/vim/share/vim/vim73/autoload/htmlcomplete.vim	2012-11-02 14:29:06.704489573 +0900
++++ htmlcomplete.vim	2013-04-04 17:35:38.506360176 +0900
+@@ -285,6 +285,7 @@
+ 				let cssfiles = styletable + secimportfiles
+ 				let classes = []
+ 				for file in cssfiles
++					let classlines = []
+ 					if filereadable(file)
+ 						let stylesheet = readfile(file)
+ 						let stylefile = join(stylesheet, ' ')
