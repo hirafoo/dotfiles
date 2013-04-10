@@ -221,9 +221,11 @@ var SBM = { //{{{
                 pageURL:   'http://b.hatena.ne.jp/entry/' + json.url
             });
             json.bookmarks.forEach(function(bm){
-                c.add(bm.user, new Date(bm.timestamp), bm.comment, bm.tags, {
-                    userIcon: 'http://www.hatena.ne.jp/users/' + bm.user.substring(0,2) + '/' + bm.user +'/profile_s.gif'
-                });
+                if (bm.user != "jt_noSke") {
+                    c.add(bm.user, new Date(bm.timestamp), bm.comment, bm.tags, {
+                        userIcon: 'http://www.hatena.ne.jp/users/' + bm.user.substring(0,2) + '/' + bm.user +'/profile_s.gif'
+                    });
+                }
             });
             return c;
         }
