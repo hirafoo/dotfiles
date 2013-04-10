@@ -2,7 +2,6 @@ noremap <c-k> gt
 noremap <c-j> gT
 noremap <c-e> gt
 noremap <c-w> gT
-noremap <c-a> <c-v><c-a>
 noremap j 10j
 noremap k 10k
 noremap l 10l
@@ -11,7 +10,7 @@ noremap w 10k
 noremap e 10j
 noremap U :undo<Space>
 noremap <silent> <c-l> <c-l>:noh<cR>
-inoremap <c-a> <c-v><c-a>
+inoremap <C-a> <Ins><C-a><Ins>
 imap <C-i> Nop
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
