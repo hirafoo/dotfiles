@@ -3,6 +3,8 @@
 modules="
 Math::BigInt::GMP
 
+Alien::RRDtool
+Amon2::Lite
 App::Ack
 CGI::Simple::Cookie
 Cache::Memcached::Fast
@@ -13,6 +15,7 @@ Crypt::DH
 Crypt::SSLeay
 DBD::mysql
 DBI
+DBIx::Simple
 Data::FormValidator
 Data::ObjectDriver
 Data::Page::Navigation
@@ -36,15 +39,20 @@ Net::CIDR::Lite
 Net::SSLeay
 Net::Server::SS::PreFork
 Object::Generic::False
+PadWalker
 Parallel::Scoreboard
 Plack
 Plack::Handler::Starman
+Plack::Middleware::AxsLog
 Plack::Middleware::ReverseProxy
+Plack::Middleware::ServerStatus::Lite
 Plack::Middleware::Session
 Plack::Runner
 Router::Simple
 Router::Simple::Declare
 Server::Starter
+Starlet
+Starman
 String::CamelCase
 Text::Xslate
 Text::Xslate::Bridge::TT2Like
