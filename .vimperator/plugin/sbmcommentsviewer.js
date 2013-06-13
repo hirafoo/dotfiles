@@ -221,7 +221,7 @@ var SBM = { //{{{
                 pageURL:   'http://b.hatena.ne.jp/entry/' + json.url
             });
             json.bookmarks.forEach(function(bm){
-                if (bm.user != "jt_noSke") {
+                if (bm.user!="jt_noSke"&&bm.user!="misomico"&&bm.user!="asuka0801") {
                     c.add(bm.user, new Date(bm.timestamp), bm.comment, bm.tags, {
                         userIcon: 'http://www.hatena.ne.jp/users/' + bm.user.substring(0,2) + '/' + bm.user +'/profile_s.gif'
                     });
