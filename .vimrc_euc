@@ -1,3 +1,2 @@
 source ~/.vimrc
-"set fileencoding=euc-jp
-set enc=euc-jp
+set fenc=euc-jp

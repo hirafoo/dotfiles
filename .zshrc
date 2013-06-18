@@ -152,6 +152,7 @@ alias sx="screen -x"
 alias w3m='w3m -no-mouse'
 alias vi=vim
 alias vie="vim -u ~/.vimrc_euc"
+alias vii="vim -u ~/.vimrc_iso"
 alias ymd="date +%Y%m%d"
 alias hms='date +%H%M%S'
 alias zmv='noglob zmv -W'
