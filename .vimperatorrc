@@ -39,7 +39,7 @@ qmark r http://www.google.co.jp/reader/view/
 qmark s http://www.google.co.jp/bookmarks/
 qmark t http://twitter.com/login
 qmark x http://mixi.jp/
-qmark y http://www.yahoo.co.jp/
+qmark y http://dailynews.yahoo.co.jp/fc/
 
 javascript liberator.beep = function() true
 
