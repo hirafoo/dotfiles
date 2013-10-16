@@ -35,7 +35,7 @@ qmark g http://github.com/hirafoo
 qmark h http://mail.live.com/
 qmark l http://www.ninja.co.jp/home/
 qmark m https://mail.google.com/
-qmark r http://www.google.co.jp/reader/view/
+qmark r http://cloud.feedly.com/
 qmark s http://www.google.co.jp/bookmarks/
 qmark t http://twitter.com/login
 qmark x http://mixi.jp/
@@ -46,7 +46,8 @@ javascript liberator.beep = function() true
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
 set hintchars=qwerasdfzxcv
-highlight Hint color:white; background-color:red; padding:1px; text-transform: lowwercase;
+"highlight Hint color:white; background-color:red; padding:1px; text-transform: lowwercase;
+hi Hint z-index:5000; font-family:Menlo; font-size:24px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute;
 
 "autocmd LocationChange .* js modes.passAllKeys = false
 "autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
