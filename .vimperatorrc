@@ -23,11 +23,11 @@ set newtab=all
 set focuscontent
 set complete=Slb
 set defsearch=g
-set guioptions=brm
+"set guioptions=brm
 set hlsearch
 set suggestengines=g
 set titlestring=Firefox
-set wildoptions=auto
+"set wildoptions=auto
 
 qmark b http://b.hatena.ne.jp/hirafoo/favorite
 qmark d http://d.hatena.ne.jp/hirafoo/
@@ -49,12 +49,12 @@ set hintchars=qwerasdfzxcv
 "highlight Hint color:white; background-color:red; padding:1px; text-transform: lowwercase;
 hi Hint z-index:5000; font-family:Menlo; font-size:24px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute;
 
-"autocmd LocationChange .* js modes.passAllKeys = false
-"autocmd LocationChange www\\.google\\.(co\\.jp|com)/reader js modes.passAllKeys = true
-
 hi StatusLine color:black; background:#DDD; font-weight:normal;
 hi CompDesc color:#272; width:50%;
 hi Preview color:#44C;
+
+:ignorekeys add mail\\.google\\.com  -except :,t,d,<C-j>,<C-k>,b,g
+:ignorekeys add cloud\\.feedly\\.com -except :,t,d,<C-j>,<C-k>,b,g
 
 """plugins
 ""http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
@@ -70,11 +70,6 @@ hi Message  padding-left: 0;
 "let g:hintchars="qwerasdfzxcv"
 
 "forcefocuscontent.js
-
-"feedSomeKeys_2.js
-autocmd LocationChange .* :fmapc
-autocmd LocationChange www\\.google\\.co\\.jp/reader :fmap! -vkey J j K k O o n v X p ?
-autocmd LocationChange mail\.google\.com/ :fmap c / y j k n p o u U e x s r a # [ ] z ? gi gs gt gd ga gc
 
 "appendAnchor.js
 let g:auto_append_anchor = "true"
