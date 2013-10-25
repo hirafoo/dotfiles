@@ -10,7 +10,7 @@ noremap w 10k
 noremap e 10j
 noremap U :undo<Space>
 noremap <silent> <c-l> <c-l>:noh<cR>
-inoremap <C-a> <Ins><C-a><Ins>
+noremap <C-a> <Insert><C-a><Insert>
 imap <C-i> Nop
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
