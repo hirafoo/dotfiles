@@ -48,7 +48,7 @@ javascript liberator.beep = function() true
 
 set hintchars=qwerasdfzxcv
 "highlight Hint color:white; background-color:red; padding:1px; text-transform: lowwercase;
-hi Hint z-index:5000; font-family:Menlo; font-size:24px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute;
+hi Hint z-index:5000; font-family:Menlo; font-size:17px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute;
 
 hi StatusLine color:black; background:#DDD; font-weight:normal;
 hi CompDesc color:#272; width:50%;
@@ -60,11 +60,11 @@ hi Preview color:#44C;
 """plugins
 ""http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
 "sbmcommentsviewer.js
-map b :viewSBMComments<CR>
-let g:def_sbm_format = "id,timestamp,tagsAndComment"
-let g:def_sbms = "h"
+map b :viewSBMComments -format id,timestamp,tags,comment -t h<CR>
+"let g:def_sbm_format = "id,timestamp,tagsAndComment"
+"let g:def_sbms = "h"
 "let g:sbm_comments_viewer_filter_nocomments="true"
-hi Message  padding-left: 0;
+"hi Message  padding-left: 0;
 
 "char-hints-mod2.js -r33247
 "let g:hintsio="io"
