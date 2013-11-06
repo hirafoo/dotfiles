@@ -95,6 +95,9 @@ noremap! <C-d> <Del>
 "vnoremap " "zdi^V"<C-R>z^V"<ESC>
 "vnoremap ' "zdi'<C-R>z'<ESC>
 
+" :vim[grep] の結果を quickfix で開く
+autocmd QuickFixCmdPost *grep* cwindow
+
 autocmd BufNewFile  *.pl      0r ~/.vim/template/perl.pl
 autocmd BufNewFile  *.pm      0r ~/.vim/template/perl.pl
 autocmd BufNewFile,BufRead *.sql set filetype=mysql
