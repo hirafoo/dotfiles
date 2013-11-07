@@ -93,7 +93,7 @@ SBMContainer.prototype = { //{{{
                 });
                 return div;
             })()}`;
-            html = xml`<div highlight="CompGroup" class="liberator-sbmcommentsviewer" style="line-height: 1.6;">
+            html = xml`<div highlight="CompGroup" class="liberator-sbmcommentsviewer" style="line-height: 1.6; width: 99%;">
                 <div highlight="Completions"><div highlight="CompTitle"><li highlight="CompResult">${label}</li><li highlight="CompDesc"></li></div></div>
             ${html}</div>`;
             return html;
