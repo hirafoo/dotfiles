@@ -124,6 +124,15 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+case "${OSTYPE}" in
+darwin*)
+  alias ls="ls -G"
+  ;;
+linux*)
+  alias ls='ls --color'
+  ;;
+esac
+
 alias ag="ag --pager 'less -R'"
 alias info="info --vi-keys"
 alias l=clear
@@ -133,7 +142,6 @@ alias li='ifconfig |grep inet |grep -v 127.0.0.1|cut -d ":" -f 2|cut -d " " -f 1
 alias ll='ls -hl'
 alias lla='ls -hlA'
 alias lld='ls -hld'
-alias ls='ls --color=tty'
 alias m=more
 #alias mysql="mysql --pager='less -S -# 5'"
 alias ja="export LANG=ja_JP.UTF-8 LANGUAGE=ja_JP:ja:en_GB:en"
