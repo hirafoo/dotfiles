@@ -188,7 +188,7 @@ alias up='svn up'
 #fi
 
 #functions
-backup() { cp $1{,_org} }
+backup() { cp $1{,_`date +%Y%m%d%H%M%S`} }
 ee () {
     uc=`echo $1 | tr "a-z" "A-Z"`
     eval echo \$$uc
