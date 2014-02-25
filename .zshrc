@@ -127,9 +127,11 @@ SAVEHIST=10000
 case "${OSTYPE}" in
 darwin*)
   alias ls="ls -G"
+  chpwd() { clear;echo \[`pwd`\];ls -hl -G }
   ;;
 linux*)
   alias ls='ls --color'
+  chpwd() { clear;echo \[`pwd`\];ls -hl --color=tty }
   ;;
 esac
 
@@ -232,7 +234,6 @@ vir () {
 cdr () { cd `gem which $1 | perl -pe 's/[^\/]+\.\w+$//'` }
 fin () { find . -name $1 V svn }
 history-all () { history -E 1 }
-chpwd() { clear;echo \[`pwd`\];ls -hl --color=tty }
 optime() {
     cat /proc/uptime | awk '{print $1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
 } # or use uptime(only BSD?)
