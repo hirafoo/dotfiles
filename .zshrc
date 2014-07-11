@@ -182,7 +182,6 @@ alias gb='git br'
 alias gl='git di'
 alias gn='git remote -v'
 alias gi='git ci'
-alias go='git co'
 alias gp='git push'
 alias gt='git st'
 
@@ -198,6 +197,13 @@ alias up='svn up'
 #fi
 
 #functions
+go() {
+    if [ -e $1 ]; then
+        git checkout $1
+    else
+        /usr/local/bin/go $@
+    fi
+}
 backup() { cp $1{,_`date +%Y%m%d%H%M%S`} }
 ee () {
     uc=`echo $1 | tr "a-z" "A-Z"`
@@ -235,7 +241,7 @@ cdr () { cd `gem which $1 | perl -pe 's/[^\/]+\.\w+$//'` }
 fin () { find . -name $1 V svn }
 history-all () { history -E 1 }
 optime() {
-    cat /proc/uptime | awk '{print $1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
+    cat /proc/uptime | awk '{print $1 / 60/60/24/365 " years / "$1 / 60/60/24 " days / "$1/60/60" hour / " $1 " sec"}'
 } # or use uptime(only BSD?)
 vm ()     { man $1 | col -b | vi -R - }
 jvm ()   { jman $1 | col -b | vi -R - }

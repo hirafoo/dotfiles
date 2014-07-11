@@ -1,6 +1,10 @@
 set nocompatible
 filetype off
 
+" gocode
+set rtp+=$GOROOT/misc/vim
+
+" vundle
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
@@ -18,6 +22,7 @@ Bundle 'vim-perl/vim-perl'
 Bundle 'koron/dicwin-vim'
 Bundle 'AutoComplPop'
 Bundle 'ack.vim'
+Bundle 'Blackrush/vim-gocode'
 
 syntax on
 filetype indent plugin on
@@ -275,6 +280,7 @@ nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
 "  autocmd BufReadPost * call AU_ReCheck_FENC()
 "endif
 
+set rtp+=/usr/local/go/misc/vim
 if filereadable( $HOME . "/.vimrc_after" )
   source ~/.vimrc_after
 endif
