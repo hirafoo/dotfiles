@@ -121,8 +121,8 @@ update_prompt()
 precmd_functions=($precmd_functions update_prompt)
 
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 case "${OSTYPE}" in
 darwin*)
@@ -185,11 +185,10 @@ alias gi='git ci'
 alias gp='git push'
 alias gt='git st'
 
-alias si='svn ci'
-alias sl='svn diff | colordiff | less'
-alias so='svn co'
-alias st='svn st'
-alias up='svn up'
+#alias si='svn ci'
+#alias so='svn co'
+#alias st='svn st'
+#alias up='svn up'
 
 ## screen auto run
 #if [ $SHLVL = 1 ];then
