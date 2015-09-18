@@ -23,6 +23,7 @@ Bundle 'koron/dicwin-vim'
 Bundle 'AutoComplPop'
 Bundle 'ack.vim'
 Bundle 'Blackrush/vim-gocode'
+Bundle 'YankRing.vim'
 
 syntax on
 filetype indent plugin on
