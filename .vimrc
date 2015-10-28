@@ -154,6 +154,9 @@ autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
 """""""""""""""""""""""""""""""""plugin"""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""YankRing.vim
+let g:yankring_history_dir = '/tmp/'
+
 """"""""""""""""""""""""acp.vim
 "<TAB>で補完
 " {{{ Autocompletion using the TAB key
