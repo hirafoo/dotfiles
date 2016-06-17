@@ -3,9 +3,9 @@ var PLUGIN_INFO = xml`
     <name>SBM Comments Viewer</name>
     <description>List show Social Bookmark Comments</description>
     <description lang="ja">ソーシャル・ブックマーク・コメントを表示します</description>
-    <version>0.2.5</version>
-    <minVersion>2.0pre</minVersion>
-    <updateURL>https://github.com/vimpr/vimperator-plugins/raw/master/sbmcommentsviewer.js</updateURL>
+    <version>0.2.6</version>
+    <minVersion>3.8.3.1</minVersion>
+    <updateURL>https://raw.githubusercontent.com/vimpr/vimperator-plugins/master/sbmcommentsviewer.js</updateURL>
     <detail><![CDATA[
 == Usage ==
 >||
@@ -93,7 +93,7 @@ SBMContainer.prototype = { //{{{
                 });
                 return div;
             })()}`;
-            html = xml`<div highlight="CompGroup" class="liberator-sbmcommentsviewer" style="line-height: 1.6; width: 99%;">
+            html = xml`<div highlight="CompGroup" class="liberator-sbmcommentsviewer" style="line-height: 1.6;">
                 <div highlight="Completions"><div highlight="CompTitle"><li highlight="CompResult">${label}</li><li highlight="CompDesc"></li></div></div>
             ${html}</div>`;
             return html;
@@ -233,7 +233,7 @@ var SBM = { //{{{
                 pageURL:   'http://b.hatena.ne.jp/entry/' + json.url
             });
             json.bookmarks.forEach(function(bm){
-                if (bm.user!="jt_noSke"&&bm.user!="misomico"&&bm.user!="asuka0801"&&bm.user!="daybeforeyesterday") {
+                if (bm.user!="jt_noSke"&&bm.user!="misomico"&&bm.user!="asuka0801"&&bm.user!="daybeforeyesterday"&&bm.user!="miraihack") {
                     c.add(bm.user, new Date(bm.timestamp), bm.comment, bm.tags, {
                         userIcon: 'http://www.hatena.ne.jp/users/' + bm.user.substring(0,2) + '/' + bm.user +'/profile_s.gif'
                     });
@@ -439,7 +439,7 @@ function getMD5Hash(str){
     function toHexString(charCode){
         return ('0' + charCode.toString(16)).slice(-2);
     }
-    var s = [i < hash.length ? toHexString(hash.charCodeAt(i)) : '' for (i in hash)].join('');
+    var s = hash.split('').map(c=>toHexString(c.charCodeAt())).join('');
     return s;
 } //}}}
 /**
@@ -528,8 +528,8 @@ var manager = {
 }; //}}}
 
 var options = [
-    [['-type','-t'], commands.OPTION_STRING, function(str) (new RegExp('^['+[t for(t in manager.type)].join('') + ']+$')).test(str)],
-    [['-format','-f'], commands.OPTION_LIST,null, [[f,manager.format[f]] for (f in manager.format)]],
+    [['-type','-t'], commands.OPTION_STRING, null, Object.keys(manager.type).map(k => [k, manager.type[k]])],
+    [['-format','-f'], commands.OPTION_LIST, null, Object.keys(manager.format).map(k => [k, manager.format[k]])],
     [['-count','-c'], commands.OPTION_NOARG],
     [['-browser','-b'],commands.OPTION_NORARG]
 ];
@@ -539,16 +539,17 @@ commands.addUserCommand(['viewSBMComments'], 'SBM Comments Viewer', //{{{
         var format = (liberator.globalVariables.def_sbm_format || 'id,timestamp,tags,comment').split(',');
         var countOnly = false, openToBrowser = false;
         var url = arg.literalArg || buffer.URL;
-        [
-            let (v = arg['-' + name]) (v && f(v))
-            for ([name, f] in Iterator({
-                count: function () countOnly = true,
-                browser: function () openToBrowser = true,
-                type: function (v) (types = v),
-                format: function (v) (format = v),
-                arguments: function (v) (v.length > 0 && (url = v[0]))
-            }))
-        ]
+
+        for ([name, f] of Iterator({
+            count: function () countOnly = true,
+            browser: function () openToBrowser = true,
+            type: function (v) (types = v),
+            format: function (v) (format = v),
+            arguments: function (v) (v.length > 0 && (url = v[0]))
+        })) {
+            let v = arg['-' + name];
+            v && f(v);
+        }
 
         for (let i=0; i<types.length; i++){
             let type = types.charAt(i);
