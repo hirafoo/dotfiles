@@ -23,6 +23,7 @@ Bundle 'koron/dicwin-vim'
 Bundle 'AutoComplPop'
 Bundle 'ack.vim'
 Bundle 'Blackrush/vim-gocode'
+Bundle 'YankRing.vim'
 
 syntax on
 filetype indent plugin on
@@ -152,6 +153,9 @@ match WhitespaceEOL /\s\+$/
 autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
 """""""""""""""""""""""""""""""""plugin"""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""YankRing.vim
+let g:yankring_history_dir = '/tmp/'
 
 """"""""""""""""""""""""acp.vim
 "<TAB>で補完

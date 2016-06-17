@@ -233,7 +233,10 @@ var SBM = { //{{{
                 pageURL:   'http://b.hatena.ne.jp/entry/' + json.url
             });
             json.bookmarks.forEach(function(bm){
-                if (bm.user!="jt_noSke"&&bm.user!="misomico"&&bm.user!="asuka0801"&&bm.user!="daybeforeyesterday"&&bm.user!="miraihack") {
+                var ignores = ["jt_noSke","misomico","asuka0801","daybeforeyesterday","feita","xevra","cyberglass","miraihack"];
+                var h=[];
+                for (var i in ignores) { h[ignores[i]]=1; }
+                if (! h[bm.user]) {
                     c.add(bm.user, new Date(bm.timestamp), bm.comment, bm.tags, {
                         userIcon: 'http://www.hatena.ne.jp/users/' + bm.user.substring(0,2) + '/' + bm.user +'/profile_s.gif'
                     });
