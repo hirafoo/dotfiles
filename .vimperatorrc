@@ -36,7 +36,7 @@ qmark g http://github.com/hirafoo
 qmark h http://mail.live.com/
 qmark l http://www.ninja.co.jp/home/
 qmark m https://mail.google.com/
-qmark r http://feedly.com/
+qmark r http://www.inoreader.com/
 qmark s http://www.google.co.jp/bookmarks/
 qmark t http://twitter.com/login
 qmark x http://mixi.jp/
@@ -56,6 +56,7 @@ hi Preview color:#44C;
 
 :ignorekeys add mail\\.google\\.com  -except :,t,d,<C-j>,<C-k>,b,g
 :ignorekeys add feedly\\.com         -except :,t,d,<C-j>,<C-k>,b,g,<C-w>,<C-e>
+:ignorekeys add www\\.inoreader\\.com         -except :,t,d,<C-j>,<C-k>,b,g,<C-w>,<C-e>
 
 """plugins
 ""http://svn.coderepos.org/share/lang/javascript/vimperator-plugins/trunk/
