@@ -163,6 +163,7 @@ alias w3m='w3m -no-mouse'
 alias vi=vim
 alias vie="vim -u ~/.vimrc_euc"
 alias viewe="view -u ~/.vimrc_euc"
+alias view="vim -R"
 alias vii="vim -u ~/.vimrc_iso"
 alias viewi="view -u ~/.vimrc_iso"
 alias ymd="date +%Y%m%d"
@@ -269,6 +270,9 @@ split_param () {
             print "$r => $v";
         }
     '
+}
+epoch2ymdhms () {
+    date +"%Y/%m/%d %H:%M:%S" -d @$1
 }
 
 # status bar
