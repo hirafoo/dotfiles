@@ -40,7 +40,7 @@ qmark r http://www.feedly.com/
 qmark s http://www.google.co.jp/bookmarks/
 qmark t http://twitter.com/login
 qmark x http://mixi.jp/
-qmark y http://dailynews.yahoo.co.jp/fc/
+qmark y http://news.yahoo.co.jp/
 
 javascript liberator.beep = function() true
 
