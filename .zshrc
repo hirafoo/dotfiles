@@ -275,6 +275,13 @@ epoch2ymdhms () {
     date +"%Y/%m/%d %H:%M:%S" -d @$1
 }
 
+line() {
+    pipe=`cat -`
+    message=`echo -e "$@\n$pipe"`
+    echo -e "$message"
+    curl -X POST -H "Authorization: Bearer $LINE_NOTIFY_SHELL_TOKEN" -F "message=$message" https://notify-api.line.me/api/notify 2>&1
+}
+
 # status bar
 #preexec () {
 #    if [ $TERM = "screen" ]; then
