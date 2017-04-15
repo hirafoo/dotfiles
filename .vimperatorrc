@@ -54,7 +54,7 @@ hi StatusLine color:black; background:#DDD; font-weight:normal;
 hi CompDesc color:#272; width:50%;
 hi Preview color:#44C;
 
-:ignorekeys add mail\\.google\\.com  -except :,t,d,w,e,<C-j>,<C-k>,b,g
+:ignorekeys add mail\\.google\\.com  -except :,t,d,w,e,<C-j>,<C-k>,b,g,<C-w>,<C-e>
 :ignorekeys add feedly\\.com         -except :,t,d,w,e,<C-j>,<C-k>,b,g,<C-w>,<C-e>
 :ignorekeys add www\\.youtube\\.com  -except :,t,d,w,e,<C-j>,<C-k>,b,g,<C-w>,<C-e>,<left>,<right>
 
