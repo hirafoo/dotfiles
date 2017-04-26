@@ -70,7 +70,6 @@ export EDITOR=vim
 #export PAGER='less -N'
 #export PAGER='less -S -# 5'
 export LESS="-R"
-export DBIC_NO_WARN_BAD_PERL=1
 #export MYSQL_PS1="[\R:\m:\s] (\U:\d)\nmysql> "
 
 export MANPATH=/usr/local/git/share/man:$MANPATH
