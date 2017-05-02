@@ -12,6 +12,8 @@ load_if_exists "$HOME/.zshrc_before"
 
 stty stop undef
 
+fpath=(~/.zsh/completion $fpath)
+
 # zsh setting
 autoload -U compinit     # 補完機能の強化
 compinit -u
