@@ -264,12 +264,14 @@ uri_unescape () {
 }
 split_param () {
     echo $1 | perl -MCGI -nle '
-        my $q = CGI->new($_);
-        for my $r ($q->param) {
-            my $v = $q->param($r);
-            $r =~ s{^http://.+\?}{};
-            print "$r => $v";
-        }
+my ($base, $params) = split /\?/, $_;
+print $base;
+
+my $q = CGI->new($params);
+for my $r ($q->param) {
+    my $v = $q->param($r);
+    print "$r => $v";
+}
     '
 }
 epoch2ymdhms () {
