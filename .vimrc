@@ -54,10 +54,10 @@ set hidden
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue
 match ZenkakuSpace /　/
 
-hi Pmenu      ctermbg=0
-hi PmenuSel   ctermbg=1
-hi PmenuSbar  ctermbg=3
-hi PmenuThumb ctermbg=2
+" ポップアップメニューのカラーを設定
+hi Pmenu ctermbg=4
+hi PmenuSel ctermbg=1
+hi PMenuSbar ctermbg=4
 
 " htmlモードとかで閉じタグをc--で自動挿入
 let g:closetag_html_style=1
