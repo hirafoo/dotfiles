@@ -204,7 +204,7 @@ let g:buftabs_in_statusline=1
 """"""""""""""""""""""""/buftabs.vim
 
 """"""""""""""""""""""""dumbbuf.vim
-" let g:qb_hotkey = "<C-o>"
+let g:dumbbuf_hotkey = "<C-o>"
 """"""""""""""""""""""""/dumbbuf.vim
 
 """"""""""""""""""""""""FuzzyFinder
