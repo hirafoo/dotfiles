@@ -12,7 +12,7 @@ Bundle 'cecutil'
 Bundle 'closetag.vim'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
-Bundle 'QuickBuf'
+Bundle 'dumbbuf'
 Bundle 'HTML5-Syntax-File'
 Bundle 'IndentAnything'
 Bundle 'Javascript-Indentation'
@@ -203,9 +203,9 @@ let g:buftabs_only_basename=1
 let g:buftabs_in_statusline=1
 """"""""""""""""""""""""/buftabs.vim
 
-""""""""""""""""""""""""QuickBuf.vim
-let g:qb_hotkey = "<C-o>"
-""""""""""""""""""""""""/QuickBuf.vim
+""""""""""""""""""""""""dumbbuf.vim
+" let g:qb_hotkey = "<C-o>"
+""""""""""""""""""""""""/dumbbuf.vim
 
 """"""""""""""""""""""""FuzzyFinder
 nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>
