@@ -24,6 +24,8 @@ Bundle 'AutoComplPop'
 Bundle 'ack.vim'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'YankRing.vim'
+Bundle "rhysd/ghpr-blame.vim"
+Bundle "tyru/current-func-info.vim"
 
 syntax on
 filetype indent plugin on
@@ -44,7 +46,8 @@ set laststatus=2
 "set showcmd
 "set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 "set statusline=[%n]\ %t\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
-set statusline=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
+"set statusline=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
+set statusline=%{GetStatusEx()}%y\ %m%h%r%l/%L,%c\ %P
 set backspace=indent,eol,start
 set helplang=ja,en
 set fileformats=unix,dos,mac
@@ -130,11 +133,12 @@ au! BufRead,BufNewFile *.conf   setfiletype conf
 augroup END
 
 function! GetStatusEx()
-let str = &fileformat
+    let str = &fileformat
     if has("multi_byte") && &fileencoding != ""
         let str = &fileencoding . ":" . str
     endif
     let str = "[" . str . "]"
+    let str = cfi#format("[%s]", "") . str
     return str
 endfunction
 
