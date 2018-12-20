@@ -9,6 +9,7 @@ pu = pull
 lg = log -p
 tree = log --graph --pretty=oneline --abbrev-commit --decorate
 graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%cn] %Cgreen%d%Creset %s\" --all --date=short
+delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 
 [color]
 diff = auto
