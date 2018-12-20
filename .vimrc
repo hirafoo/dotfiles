@@ -12,7 +12,7 @@ Bundle 'cecutil'
 Bundle 'closetag.vim'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
-Bundle 'QuickBuf'
+Bundle 'dumbbuf'
 Bundle 'HTML5-Syntax-File'
 Bundle 'IndentAnything'
 Bundle 'Javascript-Indentation'
@@ -24,6 +24,8 @@ Bundle 'AutoComplPop'
 Bundle 'ack.vim'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'YankRing.vim'
+Bundle "rhysd/ghpr-blame.vim"
+Bundle "tyru/current-func-info.vim"
 
 syntax on
 filetype indent plugin on
@@ -44,7 +46,8 @@ set laststatus=2
 "set showcmd
 "set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 "set statusline=[%n]\ %t\ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
-set statusline=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
+"set statusline=%y%{GetStatusEx()}\ %m%h%r%l/%L,%c%V\ %P
+set statusline=%{GetStatusEx()}%y\ %m%h%r%l/%L,%c\ %P
 set backspace=indent,eol,start
 set helplang=ja,en
 set fileformats=unix,dos,mac
@@ -54,10 +57,10 @@ set hidden
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue
 match ZenkakuSpace /　/
 
-hi Pmenu      ctermbg=0
-hi PmenuSel   ctermbg=1
-hi PmenuSbar  ctermbg=3
-hi PmenuThumb ctermbg=2
+" ポップアップメニューのカラーを設定
+hi Pmenu ctermbg=4
+hi PmenuSel ctermbg=1
+hi PMenuSbar ctermbg=4
 
 " htmlモードとかで閉じタグをc--で自動挿入
 let g:closetag_html_style=1
@@ -130,11 +133,12 @@ au! BufRead,BufNewFile *.conf   setfiletype conf
 augroup END
 
 function! GetStatusEx()
-let str = &fileformat
+    let str = &fileformat
     if has("multi_byte") && &fileencoding != ""
         let str = &fileencoding . ":" . str
     endif
     let str = "[" . str . "]"
+    let str = cfi#format("[%s]", "") . str
     return str
 endfunction
 
@@ -203,9 +207,9 @@ let g:buftabs_only_basename=1
 let g:buftabs_in_statusline=1
 """"""""""""""""""""""""/buftabs.vim
 
-""""""""""""""""""""""""QuickBuf.vim
-let g:qb_hotkey = "<C-o>"
-""""""""""""""""""""""""/QuickBuf.vim
+""""""""""""""""""""""""dumbbuf.vim
+let g:dumbbuf_hotkey = "<C-o>"
+""""""""""""""""""""""""/dumbbuf.vim
 
 """"""""""""""""""""""""FuzzyFinder
 nnoremap <silent> ee :FufFileWithCurrentBuffer!<CR>

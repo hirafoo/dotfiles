@@ -4,3 +4,7 @@ yum install perl-Term-ReadLine-Gnu
 
 # vim configure
 ./configure --prefix=/usr/local/vim --enable-multibyte --enable-rubyinterp --enable-gpm --enable-cscope --with-features=huge --enable-fontset --disable-gui --without-x --disable-xim --enable-pythoninterp --enable-perlinterp
+
+```wget https://github.com/git/git/blob/master/contrib/completion/git-completion.bash```
+```wget https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh```
+```mv git-completion.zsh _git```
