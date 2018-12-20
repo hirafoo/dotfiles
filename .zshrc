@@ -247,8 +247,11 @@ optime() {
 vm ()     { man $1 | col -b | vi -R - }
 jvm ()   { jman $1 | col -b | vi -R - }
 pm () { perldoc $1 | col -b | vi -R - }
+vigrep () { vi `git grep -l $@` }
+viewgrep () { view `git grep -l $@` }
 viack() { vi `ack -l $@` }
 vieack() { vim -u ~/.vimrc_euc `ack -l $@` }
+viewack () { view `ack -l $@` }
 viag() { vim `ag -l $@` }
 uri_escape () {
     for i in $@
