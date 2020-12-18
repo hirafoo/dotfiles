@@ -127,13 +127,26 @@ SAVEHIST=1000000
 
 case "${OSTYPE}" in
 darwin*)
-  alias ls="ls -G"
-  chpwd() { clear;echo \[`pwd`\];ls -hl -G }
-  ;;
+    alias ls="ls -G"
+    chpwd() { clear;echo \[`pwd`\];ls -hl -G }
+    li () {
+        ifconfig en0 | awk '/inet / { print $2 }'
+        hostname
+    }
+;;
 linux*)
-  alias ls='ls --color'
-  chpwd() { clear;echo \[`pwd`\];ls -hl --color=tty }
-  ;;
+    alias ls='ls --color'
+    chpwd() { clear;echo \[`pwd`\];ls -hl --color=tty }
+    li () {
+        grep "release 6" /etc/redhat-release > /dev/null
+        if [ $0 = 1 ]; then
+            ifconfig |grep inet |grep -v '127.0.0.1'|cut -d ":" -f 2|cut -d " " -f 1; hostname
+        else
+            ip -f inet -o addr show eth0|cut -d\  -f 7 | cut -d/ -f 1
+        fi
+        hostname
+    }
+;;
 esac
 
 alias ag="ag --pager 'less -R'"
@@ -141,7 +154,6 @@ alias info="info --vi-keys"
 alias l=clear
 alias la='ls -A'
 alias le=less
-alias li='ifconfig |grep inet |grep -v 127.0.0.1|cut -d ":" -f 2|cut -d " " -f 1; hostname'
 alias ll='ls -hl'
 alias lla='ls -hlA'
 alias lld='ls -hld'
@@ -180,10 +192,12 @@ alias -g V='| grep -v'
 alias -g W='| wc'
 alias -g X='| xargs grep'
 
+alias ga='git add'
 alias gb='git br'
 alias gl='git di'
 alias gn='git remote -v'
 alias gi='git ci'
+alias go='git co'
 alias gp='git push'
 alias gt='git st'
 
@@ -198,13 +212,13 @@ alias gt='git st'
 #fi
 
 #functions
-go() {
-    if [ -e $1 ]; then
-        git checkout $1
-    else
-        /usr/local/bin/go $@
-    fi
-}
+#go() {
+#    if [ -e $1 ]; then
+#        git checkout $1
+#    else
+#        /usr/bin/go $@
+#    fi
+#}
 backup() { cp $1{,_`date +%Y%m%d%H%M%S`} }
 ee () {
     uc=`echo $1 | tr "a-z" "A-Z"`
