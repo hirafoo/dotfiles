@@ -24,6 +24,7 @@ Bundle 'AutoComplPop'
 Bundle 'ack.vim'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'YankRing.vim'
+Bundle 'udalov/kotlin-vim'
 
 syntax on
 filetype indent plugin on
@@ -127,6 +128,7 @@ au! BufRead,BufNewFile *.t      setfiletype perl
 au! BufRead,BufNewFile *.cgi    setfiletype perl
 au! BufRead,BufNewFile *.psgi   setfiletype perl
 au! BufRead,BufNewFile *.conf   setfiletype conf
+au! BufRead,BufNewFile *.kt     setfiletype kotlin
 augroup END
 
 function! GetStatusEx()
