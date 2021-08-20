@@ -321,6 +321,8 @@ screen*)
 esac
 
 PATH=~/bin:/sbin:/usr/sbin:/usr/local/bin:/var/lib/gems/1.8/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 load_if_exists "$HOME/perl5/perlbrew/etc/bashrc"
 load_if_exists "$HOME/.zshrc_after"
