@@ -1,0 +1,4 @@
+bind e scrollline 5
+bind w scrollline -5
+bind <c-e> tabnext
+bind <c-w> tabprev
