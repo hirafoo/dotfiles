@@ -31,10 +31,5 @@ bind l windowlist
 defscrollback 3000
 
 screen
-screen
-screen
-screen
-screen
-screen
 
 select 0
